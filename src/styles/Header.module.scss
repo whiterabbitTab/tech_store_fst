@@ -1,0 +1,79 @@
+@use 'sass:list';
+
+$lst: '../../images/header/facebook_icon.png','../../images/header/instagram_icon.png', 'search', 'user', 'basket';
+
+@mixin image($bg-image, $width, $height) {
+    @apply transition-all duration-300 hover:scale-110 bg-cover;
+    width: $width;
+    height: $height;
+    background: url($bg-image) no-repeat center center;
+}
+
+.header {
+    @apply w-full flex flex-col items-center border-b;
+    background-color: #020202;
+    
+    .header__info {
+        @apply flex items-center justify-between w-2/3 h-11;
+
+        p {
+            @apply text-white text-xs font-semibold;
+
+            a {
+                @apply underline underline-offset-8 ml-3;
+                text-decoration-thickness: 2px;
+            }
+        }
+
+        span {
+            color: #A2A6B0;
+        }
+        & > div:nth-child(3) {
+            @apply flex items-center gap-4;
+
+            @for $i from 1 through 2 {
+                & > a:nth-child(#{$i + 1}) {
+                    @include image($bg-image: list.nth($lst, $i), $width: 20px, $height: 20px)
+                }
+            }
+        }
+    }
+
+    .header__links_bg {
+        @apply flex justify-center w-full bg-white;
+
+        .header__links {
+            @apply flex items-center justify-around h-24;
+            width: 1410px;
+    
+            .pages__links, .user__links {
+                @apply flex items-center h-full justify-around gap-6;
+    
+                a {
+                    @apply transition-all duration-300 hover:opacity-60 text-sm font-semibold;
+                }
+                
+                a:nth-child(9) {
+                    @apply text-main_linear_blue py-2 px-6 border-main_blue border-2;
+                    border-radius: 50px;
+                    // color: linear-gradient(to right, #0074BE 0%, #005EAD 51%, #003189 100%);
+                }
+
+                @for $i from 3 through 5 {
+                    .#{list.nth($lst, $i)} {
+                        @if ($i == 4) {
+                            @apply size-6 rounded-full transition-all duration-300 hover:scale-110 bg-cover;
+                        } @else {
+                            @include image($bg-image: '../images/header/#{list.nth($lst, $i)}_icon.png', $width: 30px, $height: 30px);
+                        }
+                    }
+                }
+            }
+            
+            .pages__links > a:nth-child(1) {
+                @apply hover:opacity-100;
+                @include image($bg-image: '../../images/header/logo.png', $width: 35px, $height: 45px);
+            }
+        }
+    }
+}

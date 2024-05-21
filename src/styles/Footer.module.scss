@@ -1,0 +1,124 @@
+@use '../styles/Header.module.scss' as hm;
+@use 'sass:list';
+$lst_cards: 'paypal', 'visa', 'mastercard', 'discover', 'ae';
+$lst_top: 'headphones', 'account', 'savings';
+
+footer {
+    @apply w-full bg-black flex flex-wrap justify-center;
+    height: 863px;
+
+    .footer__top {
+        @apply flex items-center justify-center gap-32 w-full bg-white;
+        height: 273px;
+
+        @for $i from 1 through 3 {
+            div:nth-child(#{$i}) {
+                @apply flex flex-col justify-center items-center px-4 gap-4;
+                max-width: 265px;
+    
+                div {
+                    @include hm.image($bg-image: '../images/footer/#{list.nth($lst_top, $i)}.png', $width: 25px, $height: 25px);
+                    @apply bg-main_blue rounded-full p-8 hover:scale-100;
+                }
+    
+                h1 {
+                    @apply text-lg font-bold;
+                }
+    
+                p {
+                    @apply text-sm font-normal text-center align-middle;
+                }
+            }
+        }
+
+    }
+
+    .footer__buttons {
+        @apply flex flex-col items-center justify-between text-white pt-12 pb-6 w-full gap-11;
+        height: 590px;
+
+        .email__block {
+            @apply flex justify-between items-center;
+            width: 1400px;
+
+            h3 {
+                @apply font-medium mb-2;
+                font-size: 38px;
+            }
+
+            form {
+                @apply flex gap-6;
+
+                input {
+                    @apply py-4 px-5 bg-transparent border-2 rounded-md;
+                    width: 390px;
+                }
+                button {
+                    @apply transition-all duration-200 hover:bg-opacity-80 font-semibold text-base py-4 px-11 bg-main_blue;
+                    border-radius: 50px;
+                }
+            }
+        }
+        .links__block {
+            @apply flex justify-between;
+            width: 1400px;
+
+            & > div {
+                @apply flex flex-col gap-5;
+
+                h1 {
+                    @apply text-sm font-bold opacity-50;
+                }
+
+                & > div {
+                    @apply flex flex-col justify-between gap-2 font-normal;
+                    font-size: 13px;
+
+                    span {
+                        @apply text-main_blue_white;
+                    }
+
+                    a {
+                        @apply transition-all duration-200 hover:opacity-70;
+                    }
+                }
+            }
+        }
+        .info__block {
+            @apply flex flex-col gap-3 justify-between;
+            width: 1400px;
+
+            hr {
+                @apply opacity-40;
+            }
+
+            .info__buttons {
+                @apply flex justify-between items-center w-full;
+
+                .social__media {
+                    @apply flex justify-between gap-3;
+
+                    @for $i from 1 through 2 {
+                        & > a:nth-child(#{$i}) {
+                            @include hm.image($bg-image: list.nth(hm.$lst, $i), $width: 16px, $height: 16px);
+                            opacity: 50%;
+                        }
+                    }
+                }
+                .cards {
+                    @apply flex justify-around gap-3;
+
+                    @for $i from 1 through 5 {
+                        a:nth-child(#{$i}) {
+                            @include hm.image($bg-image: '../../images/footer/#{list.nth($lst_cards, $i)}_icon.png', $width: 60px, $height: 34px);
+                            background-size: 100%;
+                        }
+                    }
+                }
+                .copyright {
+                    @apply font-medium text-xs opacity-60;
+                }
+            }
+        }
+    }
+}
