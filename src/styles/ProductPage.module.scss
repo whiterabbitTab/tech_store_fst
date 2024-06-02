@@ -1,0 +1,106 @@
+.main__product {
+  @apply flex flex-col items-center w-full;
+
+  .filter__block {
+    @apply flex justify-between items-center w-[73%] h-[100px] mx-auto;
+
+    .info__block {
+      @apply flex w-full gap-x-8;
+
+      .btn__filter {
+        @apply text-center font-semibold text-sm opacity-60  h-6;
+      }
+
+      .active {
+        @apply bg-red-500;
+      }
+
+      .btn__active {
+        @apply opacity-100 border-b-2 px-1 border-b-sky-400;
+      }
+    }
+
+    .buttons {
+      @apply flex justify-between gap-x-4;
+
+      .sale__info {
+        @apply flex items-center justify-between;
+      }
+
+      button {
+        @apply text-center
+      }
+    }
+  }
+
+  .about__block, .details__block, .specs__block {
+    @apply flex w-full h-[747px];
+
+    .product__block {
+      @apply flex justify-center w-full;
+
+      .product__info {
+        @apply flex items-center justify-end py-8 bg-[#F5F7FF] w-[50%];
+
+        .list__details {
+          @apply flex flex-col gap-y-2 list-disc pl-4;
+        }
+      }
+      .product__logo {
+        @apply flex flex-col items-center justify-center px-10 w-[50%] gap-y-10 h-[675px];
+
+        .change_carousel {
+          @apply w-[255px] h-[444px];
+
+          ul {
+            @apply translate-y-4 px-0 w-[52px] translate-x-24;
+          }
+
+          li > button {
+            @apply bg-[#CACDD8] rounded-xl;
+            width: 10px !important;
+            height: 10px !important;
+          }
+          .slick-active > button {
+            background-color: #0156FF !important;
+          }
+        }
+      }
+    }
+  }
+
+  .intel__carousel {
+    @apply w-full h-[681px];
+
+    ul {
+      @apply px-0 w-[52px] translate-x-[262px] -translate-y-4;
+    }
+
+    li > button {
+      @apply bg-[#CACDD8] rounded-xl;
+      width: 10px !important;
+      height: 10px !important;
+    }
+    .slick-active > button {
+      background-color: #0156FF !important;
+    }
+    
+    .block {
+      @apply flex w-full h-[681px] text-white pl-[20%] pt-[161px];
+    }
+  }
+
+  .sup__btn {
+    @apply transition-all duration-200 hover:border-[#5270dd] hover:bg-[#ffffff] flex justify-between items-center w-[347px] h-[56px] px-[26px] py-2 -translate-x-72 border border-[#CACDD8] rounded-md;
+  }
+
+  .features__block {
+    @apply flex justify-center items-center w-full h-[693px] text-white;
+    background: radial-gradient(#242528, #040404);
+
+    .card {
+      @apply flex flex-col gap-y-7 items-center;
+      
+    }
+  }
+}

@@ -1,5 +1,13 @@
+
+export interface ISpecs {
+    cpu: string,
+    featured: string,
+    io_ports: string
+}
+
 export interface IProduct {
     id: string,
+    type: string;
     price: number,
     discount: number,
     name: string,
@@ -8,7 +16,9 @@ export interface IProduct {
     maker: string,
     description: string,
     image: string,
-    details: string[],
+    image_about: string[],
     status: string,
-    date_created: string
+    date_created: string,
+    details: string[],
+    specs: ISpecs
 }

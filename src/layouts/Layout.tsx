@@ -6,7 +6,7 @@ export const Layout = () => {
     return(
         <>
             <Header />
-            <main className="flex flex-col items-center justify-between w-[73%] mx-auto">
+            <main className="flex flex-col items-center justify-between w-full mx-auto">
                 <Outlet />
             </main>
             <Footer />
