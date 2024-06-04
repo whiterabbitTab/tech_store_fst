@@ -1,11 +1,14 @@
+interface IBasket {
+    id_product: string,
+    count: number
+}
+
 export interface IUser {
     username: string,
     id: string,
     email: string,
     password: string,
-    basket: {
-        id_product: number
-    },
+    basket: IBasket[],
     user_icon: string
 }
 

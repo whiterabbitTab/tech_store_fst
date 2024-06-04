@@ -4,6 +4,8 @@ import { NewProduct } from "../../components/NewProducts/NewProducts";
 import styles from "../../styles/Home.module.scss"
 import { ProductsCarousels } from "../../components/ProductsHome/ProductsCarousels";
 import { HomeLogotypes } from "../../components/HomeLogotypes/HomeLogotypes";
+import { SocialCards } from "../../components/SocialCards/SocialCards";
+import { Reviews } from "../../components/Reviews/Reviews";
 
 export const Home = () => {
 
@@ -14,6 +16,8 @@ export const Home = () => {
             <Image src="../../../public/zip_home.png" alt="Zip Home" preview={false} />
             <ProductsCarousels />
             <HomeLogotypes />
+            <SocialCards />
+            <Reviews />
         </div>
     );
 };

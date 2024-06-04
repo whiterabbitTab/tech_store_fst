@@ -917,9 +917,12 @@
             "username": "Alex_312",
             "email": "sdfsadf@gmail.com",
             "password": "qwertyuiop",
-            "basket": {
-                "id_product": 1
-            },
+            "basket": [
+                {
+                    "id_product": "pi11",
+                    "count": 1
+                }
+            ],
             "user_icon": "src/images/header/user_ui1_icon.png"
         }
     ]
