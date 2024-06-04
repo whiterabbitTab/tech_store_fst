@@ -15,7 +15,7 @@ export const Footer = () => {
             <section className={styles.footer__top}>
                 {footer_top.map((el, i) => {
                     return (
-                        <div>
+                        <div key={i}>
                             <div></div>
                             <h1>{el[0]}</h1>
                             <p>{el[1]}</p>
@@ -37,11 +37,11 @@ export const Footer = () => {
                 <div className={styles.links__block}>
                     {footer_links.map((el, i) => {
                         return (
-                            <div>
+                            <div key={i}>
                                 <h1>{el[0]}</h1>
                                 <div>
                                     {el.slice(1).map((elem, i) => {
-                                        return elem.length === 2 ? <Link to={elem[1]}>{elem[0]}</Link> : <div className='flex flex-row'><p className='mr-1'>{elem[0]}:</p><Link to={elem[2]}><span>{elem[1]}</span></Link></div>
+                                        return elem.length === 2 ? <Link key={i} to={elem[1]}>{elem[0]}</Link> : <div key={i} className='flex flex-row'><p className='mr-1'>{elem[0]}:</p><Link to={elem[2]}><span>{elem[1]}</span></Link></div>
                                     })}
                                 </div>
                             </div>

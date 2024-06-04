@@ -41,7 +41,7 @@ export const ProductsCarousels = () => {
     <>
       {
         isLoading ? "Loading" : isSuccess ? custom_carousel?.map((carousel, i) => {
-          return <ProductsHome carousel={carousel} />
+          return <ProductsHome key={i} carousel={carousel} />
         }) : 'Not found'
       }
     </>
