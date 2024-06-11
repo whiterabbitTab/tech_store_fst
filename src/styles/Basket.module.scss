@@ -1,0 +1,33 @@
+.basket__main {
+  @apply flex w-[73%];
+
+  h1 {
+    @apply font-semibold text-[32px];
+  }
+
+  .basket__products {
+    @apply grid gap-y-6;
+    grid-template-columns: 420px 119px 89px 174px;
+
+    & > span {
+      @apply font-semibold text-sm;
+    }
+
+    input {
+      @apply w-[70px] h-[50px] bg-[#F5F7FF] outline-none pl-5 rounded-sm font-semibold text-sm;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button
+    {
+      @apply bg-blue-500 cursor-pointer;
+    }
+
+    .product__preview {
+      @apply flex gap-x-7 py-[25px] pr-[26px] border-t-2;
+
+      p {
+        @apply font-normal text-sm w-[271px];
+      }
+    }
+  }
+}

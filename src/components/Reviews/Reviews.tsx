@@ -6,7 +6,7 @@ import { reviews } from '../../constants/reviewsHome.constants';
 export const Reviews = () => {
   return(
     <div className={styles.reviews__block}>
-      <Carousel className='flex flex-col justify-center max-w-[922px] max-h-[205px] items-end gap-x-[26px]'>
+      <Carousel autoplay className='flex flex-col justify-center max-w-[922px] max-h-[205px] items-end gap-x-[26px]'>
           {reviews.map((review) => {
               return (
                 <div key={review.author} className='flex flex-col max-w-[922px] max-h-[205px] gap-x-[26px]'>
@@ -18,7 +18,6 @@ export const Reviews = () => {
                 </div>
               )
           })}
-        
       </Carousel>
       <Link to='#'>Leave Us A Review</Link>
     </div>

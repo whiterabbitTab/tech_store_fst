@@ -1,5 +1,5 @@
-interface IBasket {
-    id_product: string,
+export interface IBasket {
+    id: string,
     count: number
 }
 
@@ -8,8 +8,8 @@ export interface IUser {
     id: string,
     email: string,
     password: string,
-    basket: IBasket[],
-    user_icon: string
+    user_icon: string,
+    basket: IBasket[]
 }
 
 export interface IUserCreate extends Omit<IUser, "id"> {}

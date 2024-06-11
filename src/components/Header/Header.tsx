@@ -3,12 +3,14 @@ import { userApi } from '../../store/api/userApi';
 // import styles from "@styles/Header.module.scss"
 import styles from '../../styles/Header.module.scss'
 import { Link } from 'react-router-dom'
+import useLocalStorage from 'use-local-storage';
 
 export const Header = () => {
 
     const { data } = userApi.useGetUserQuery('ui1')
     const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
     const userIcon = data == undefined ? 'None' : data.user_icon
+    const [isUserAuth, setIsUserAuth] = useLocalStorage<boolean>('isAuth', true)
 
     useEffect(() => {
         if (userIcon === 'None') {
@@ -48,7 +50,7 @@ export const Header = () => {
                     </div>
                     <div className={styles.user__links}>
                         <Link to="/" className={styles.search}></Link>
-                        <Link to="/" className={styles.basket}></Link>
+                        <Link to="/basket" className={styles.basket}></Link>
                         <Link to="/" className={styles.user}></Link>
                     </div>
                 </section>
