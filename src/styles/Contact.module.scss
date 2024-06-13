@@ -1,0 +1,52 @@
+.contact__page {
+  @apply flex w-[73%] gap-x-16 py-5 h-[822px];
+
+  .forms__block {
+    @apply flex flex-col gap-y-3 w-[75%];
+
+    & > h1 {
+      @apply font-semibold text-[32px];
+    }
+
+    & > p {
+      @apply flex flex-col gap-y-2;
+    }
+
+    .contact__info {
+      @apply grid gap-8 gap-y-5;
+      grid-template-columns: repeat(2, 50%);
+    }
+
+    input, textarea {
+      @apply transition-[border] duration-200 focus:outline-[#518ceb] hover:border-[#518ceb] px-4 h-[50px] border border-[#b7bac0] rounded-md py-3 placeholder:text-sm placeholder:font-light;
+    }
+
+    label {
+      @apply font-semibold text-sm;
+
+      span {
+        @apply text-[#C94D3F];
+      }
+    }
+
+    .submit__button {
+      @apply transition-all duration-200 hover:bg-white hover:text-[#0156FF] text-center bg-[#0156FF] text-white w-[151px] h-[50px] text-sm font-semibold border-2 rounded-[50px] border-[#0156FF];
+    }
+  }
+
+  .info__block {
+    @apply flex flex-col bg-[#F5F7FF] gap-y-4 px-8 py-7 min-h-[404px] max-h-[500px] w-[411px];
+
+    .info__card {
+      @apply flex;
+
+      p {
+        @apply flex flex-col text-[13px] font-normal w-[247px];
+
+        span {
+          @apply mb-2 font-semibold text-lg;
+        }
+      }
+    }
+  }
+}

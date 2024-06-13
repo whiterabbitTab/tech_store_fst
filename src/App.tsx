@@ -5,6 +5,7 @@ import { ProductPage } from "./components/ProductPage/ProductPage"
 import { ProductLayout } from "./layouts/ProductLayout"
 import { NotFound } from "./components/NotFound/NotFound"
 import { Basket } from "./components/Basket/Basket"
+import { Contact } from "./pages/Contact/Contact"
 
 export const App = () => {
 
@@ -13,6 +14,7 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/product/*" element={<ProductLayout />}>
           <Route path=":id/*" element={<ProductPage />} />
         </Route>

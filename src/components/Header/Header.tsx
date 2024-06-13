@@ -1,16 +1,13 @@
 import { useEffect } from 'react';
 import { userApi } from '../../store/api/userApi';
-// import styles from "@styles/Header.module.scss"
 import styles from '../../styles/Header.module.scss'
 import { Link } from 'react-router-dom'
-import useLocalStorage from 'use-local-storage';
 
 export const Header = () => {
 
-    const { data } = userApi.useGetUserQuery('ui1')
+    const { data: user, isSuccess } = userApi.useGetUserQuery('ui1')
     const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
-    const userIcon = data == undefined ? 'None' : data.user_icon
-    const [isUserAuth, setIsUserAuth] = useLocalStorage<boolean>('isAuth', true)
+    const userIcon = user == undefined ? 'None' : user.user_icon
 
     useEffect(() => {
         if (userIcon === 'None') {
@@ -31,7 +28,7 @@ export const Header = () => {
                     <p><span>Mon-Thu: </span>9:00 AM - 5:30 PM</p>
                 </div>
                 <div>
-                    <p><span>Visit our showroom in 1234 Street Adress City Address, 1234</span><Link to='/'>Contact us</Link></p>
+                    <p><span>Visit our showroom in 1234 Street Adress City Address, 1234</span><Link to='/contact'>Contact us</Link></p>
                 </div>
                 <div>
                     <p>Call Us: (00) 1234 5678</p>
@@ -50,7 +47,7 @@ export const Header = () => {
                     </div>
                     <div className={styles.user__links}>
                         <Link to="/" className={styles.search}></Link>
-                        <Link to="/basket" className={styles.basket}></Link>
+                        {isSuccess && user.basket.length > 0 ? <Link to="/basket" className={styles.basket}><div className='relative left-[18px] flex items-center justify-center size-4 rounded-full bg-[#0156FF] text-white font-bold text-[10px]'>{user.basket.length}</div></Link> : <Link to="/basket" className={styles.basket}></Link>}
                         <Link to="/" className={styles.user}></Link>
                     </div>
                 </section>
