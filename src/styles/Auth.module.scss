@@ -1,0 +1,56 @@
+@use '../styles/Contact.module.scss' as cu;
+
+.auth__page {
+  @apply flex flex-col w-[73%] gap-y-5 py-5;
+
+
+  & > h1 {
+    @apply font-semibold text-[32px];
+  }
+
+  .auth__blocks {
+    @apply flex gap-x-8 mx-auto;
+
+    .login__block, .new__customer__block {
+      @apply flex flex-col px-[58px] gap-y-3 py-9 bg-[#F5F7FF] w-[565px];
+
+      h1 {
+        @apply font-bold text-lg;
+      }
+      p {
+        @apply font-normal text-sm;
+      }
+      
+      ul {
+        @apply mt-3;
+        li {
+        @apply font-normal text-sm mb-2 list-disc ml-4;
+      }
+      }
+      
+      .buttons {
+        @apply flex items-center gap-x-6 mt-[30px];
+
+        .login__button {
+          @include cu.submitButton($width: 151px);
+        }
+
+        .forgot_pass__button {
+          @apply transition-all duration-200 hover:opacity-70 text-[#0156FF] text-sm font-medium;
+        }
+      }
+
+      .createAcc__button, .haveAcc__button {
+        @include cu.submitButton($width: 208px);
+      }
+    }
+
+    .new__customer__block {
+      @apply max-h-[432px];
+    }
+
+    @include cu.inputStyle();
+  }
+
+  
+}

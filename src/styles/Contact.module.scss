@@ -1,3 +1,22 @@
+@mixin inputStyle() {
+  input, textarea {
+    @apply transition-[border] duration-200 focus:outline-[#518ceb] hover:border-[#518ceb] px-4 h-[50px] border border-[#b7bac0] rounded-md py-3 placeholder:text-sm placeholder:font-light;
+  }
+
+  label {
+    @apply font-semibold text-sm;
+
+    span {
+      @apply text-[#C94D3F];
+    }
+  }
+}
+
+@mixin submitButton($width) {
+  @apply transition-all duration-200 hover:bg-white hover:text-[#0156FF] text-center bg-[#0156FF] text-white h-[50px] text-[15px] font-semibold border-2 rounded-[50px] border-[#0156FF];
+  width: $width;
+}
+
 .contact__page {
   @apply flex w-[73%] gap-x-16 py-5 h-[822px];
 
@@ -17,21 +36,12 @@
       grid-template-columns: repeat(2, 50%);
     }
 
-    input, textarea {
-      @apply transition-[border] duration-200 focus:outline-[#518ceb] hover:border-[#518ceb] px-4 h-[50px] border border-[#b7bac0] rounded-md py-3 placeholder:text-sm placeholder:font-light;
-    }
-
-    label {
-      @apply font-semibold text-sm;
-
-      span {
-        @apply text-[#C94D3F];
-      }
-    }
+    @include inputStyle();
 
     .submit__button {
-      @apply transition-all duration-200 hover:bg-white hover:text-[#0156FF] text-center bg-[#0156FF] text-white w-[151px] h-[50px] text-sm font-semibold border-2 rounded-[50px] border-[#0156FF];
+      @include submitButton($width: 151px);
     }
+    
   }
 
   .info__block {

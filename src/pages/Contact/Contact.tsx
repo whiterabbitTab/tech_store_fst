@@ -20,8 +20,6 @@ export const Contact = () => {
             return <InputInfo key={i} placeholder={el.placeholder} type={el.type} label={el.label} name={el.name} />
           })}
         </div>
-        {/* <InputInfo placeholder={'Jot us a note and we’ll get back to you as quickly as possible'} type={'text'} label={<label>What’s on your mind? <span>*</span></label>} name={'message'} height={236} />
-         */}
         <div className='mt-3 flex flex-col gap-y-4 h-[236px]'>
           <label htmlFor="message">What’s on your mind? <span>*</span></label>
           <textarea className='min-h-[200px]' name="message"></textarea>

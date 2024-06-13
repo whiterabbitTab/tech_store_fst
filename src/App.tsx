@@ -6,6 +6,7 @@ import { ProductLayout } from "./layouts/ProductLayout"
 import { NotFound } from "./components/NotFound/NotFound"
 import { Basket } from "./components/Basket/Basket"
 import { Contact } from "./pages/Contact/Contact"
+import { Auth } from "./pages/Auth/Auth"
 
 export const App = () => {
 
@@ -15,6 +16,7 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Auth />} />
         <Route path="/product/*" element={<ProductLayout />}>
           <Route path=":id/*" element={<ProductPage />} />
         </Route>
