@@ -1126,6 +1126,8 @@
       "email": "sdfsadf@gmail.com",
       "password": "qwertyuiop",
       "user_icon": "src/images/header/user_ui1_icon.png",
+      "firstname": "David",
+      "surname": "Smith",
       "basket": [
         {
           "id": "pi11",

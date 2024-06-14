@@ -1,25 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { userApi } from '../../store/api/userApi';
 import styles from '../../styles/Header.module.scss'
 import { Link } from 'react-router-dom'
+import { useTypedSelector } from '../../hooks/redux';
 
 export const Header = () => {
 
-    const { data: user, isSuccess } = userApi.useGetUserQuery('ui1')
-    const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
-    const userIcon = user == undefined ? 'None' : user.user_icon
+    const isauth = useTypedSelector(state => state.user.slice(1, -1))
+    const { data: user } = userApi.useGetUserQuery(isauth)
+    const userIcon = user === undefined ? 'None' : user.user_icon
 
+    const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
+    
     useEffect(() => {
         if (userIcon === 'None') {
             let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
             user_link.style.cssText = `background: url(src/images/header/login_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
         }
     }, [])
-
     if (userIcon !== 'None') {
         let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
         user_link.style.cssText = `background: url(${userIcon}) center center no-repeat; background-size: cover`
     }
+
 
     return(
         <header className={styles.header}>
@@ -47,8 +50,8 @@ export const Header = () => {
                     </div>
                     <div className={styles.user__links}>
                         <Link to="/" className={styles.search}></Link>
-                        {isSuccess && user.basket.length > 0 ? <Link to="/basket" className={styles.basket}><div className='relative left-[18px] flex items-center justify-center size-4 rounded-full bg-[#0156FF] text-white font-bold text-[10px]'>{user.basket.length}</div></Link> : <Link to="/basket" className={styles.basket}></Link>}
-                        <Link to="/" className={styles.user}></Link>
+                        {user && user.basket && user.basket.length > 0 ? <Link to="/basket" className={styles.basket}><div className='relative left-[18px] flex items-center justify-center size-4 rounded-full bg-[#0156FF] text-white font-bold text-[10px]'>{user.basket.length}</div></Link> : <Link to="/basket" className={styles.basket}></Link>}
+                        <Link to="/login" className={styles.user}></Link>
                     </div>
                 </section>
             </section>

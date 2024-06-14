@@ -1,15 +1,17 @@
 export interface IBasket {
-    id: string,
-    count: number
+    id: string;
+    count: number;
 }
 
 export interface IUser {
     username: string,
-    id: string,
-    email: string,
-    password: string,
-    user_icon: string,
-    basket: IBasket[]
+    id: string;
+    email: string;
+    password: string;
+    user_icon: string;
+    firstname?: string;
+    surname?: string;
+    basket: IBasket[];
 }
 
 export interface IUserCreate extends Omit<IUser, "id"> {}

@@ -7,8 +7,18 @@ import { NotFound } from "./components/NotFound/NotFound"
 import { Basket } from "./components/Basket/Basket"
 import { Contact } from "./pages/Contact/Contact"
 import { Auth } from "./pages/Auth/Auth"
+import { useTypedDispatch } from "./hooks/redux"
+import { useEffect } from "react"
+import { actions } from "./store/userSlice/user.slice"
+import useLocalStorage from "use-local-storage"
 
 export const App = () => {
+
+  const [isAuth, setIsAuth] = useLocalStorage<string>('isAuth', 'not')
+  const dispatch = useTypedDispatch()
+  useEffect(() => {
+    dispatch(actions.authUser(window.localStorage.getItem('isAuth')))
+  })
 
   return (
     <Routes>

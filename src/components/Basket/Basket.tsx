@@ -2,12 +2,20 @@ import styles from '../../styles/Basket.module.scss'
 import { IBasket } from '../../types/users.type';
 import { BasketItem } from './BasketItem';
 import { useGetUserQuery } from '../../store/api/userApi';
-import { account_id } from '../../constants/api.constants';
+import { useTypedSelector } from '../../hooks/redux';
+import { useNavigate } from 'react-router-dom';
 
 export const Basket = () => {
 
-  const { data: user, isSuccess, isLoading } = useGetUserQuery(account_id)
+  const isauth = useTypedSelector(state => state.user.slice(1,-1))
+  const {data: user, isLoading, isSuccess} = useGetUserQuery(isauth)
   const basket: IBasket[] = user ? user.basket : []
+  const navigate = useNavigate()
+
+  if (isauth === 'not') {
+    navigate('/login')
+  }
+
   return(
     <div className={styles.basket__main}>
       <div className='flex flex-col gap-y-8'>
@@ -29,4 +37,4 @@ export const Basket = () => {
       </div>
     </div>
   );
-};
+}
