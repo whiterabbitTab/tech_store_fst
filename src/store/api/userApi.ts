@@ -29,7 +29,7 @@ export const userApi = createApi({
                     type: 'User'
                 }]
         }),
-        changeCountProduct: builder.mutation<IUser, IUser>({
+        changeUserData: builder.mutation<IUser, IUser>({
             query: (body) => ({
                 url: `users/${body.id}`,
                 method: 'PUT',
@@ -43,4 +43,4 @@ export const userApi = createApi({
     })
 })
 
-export const { useGetUserQuery, useChangeCountProductMutation, useGetAllUsersQuery, useCreateUserMutation } = userApi
+export const { useGetUserQuery, useChangeUserDataMutation, useGetAllUsersQuery, useCreateUserMutation } = userApi

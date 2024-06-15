@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { InputInfo } from '../../components/InputInfo/InputInfo';
 import styles from '../../styles/Auth.module.scss'
 import { inputValues } from '../../constants/auth.constants';
@@ -8,13 +8,17 @@ import { useCreateUserMutation, useGetAllUsersQuery } from '../../store/api/user
 import { Bounce, ToastContainer } from 'react-toastify';
 import { userExist, differentPass, occupiedUsername, emptyFields } from '../../constants/authValidate.constants';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import { IUser } from '../../types/users.type';
 
 export const Auth = () => {
 
   const [haveAccount, setHaveAccount] = useState<boolean>(true)
+  const [newUserAccount, setNewUserAccount] = useState<IUser>()
   const { data: users } = useGetAllUsersQuery(null)
   const [isAuth, setIsAuth] = useLocalStorage<string>('isAuth', '')
   const [ createUserAccount ] = useCreateUserMutation()
+  const navigate = useNavigate()
 
   const userData = useTypedSelector(state => state.createUser)
   const account = () => {
@@ -33,9 +37,13 @@ export const Auth = () => {
       occupiedUsername()
     } else {
       const { confirmpass: _, ...newUser } = userData
-      console.log(createUserAccount(newUser))
+      createUserAccount(newUser).then(response => setIsAuth(response.data?.id)).catch(response => response.error)
     }
   }
+
+  useEffect(() => {
+    isAuth !== 'not' && navigate('/')
+  }, [isAuth])
 
   if (haveAccount) {
     return(

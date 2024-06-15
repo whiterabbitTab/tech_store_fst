@@ -9,13 +9,18 @@ export const Header = () => {
     const isauth = useTypedSelector(state => state.user.slice(1, -1))
     const { data: user } = userApi.useGetUserQuery(isauth)
     const userIcon = user === undefined ? 'None' : user.user_icon
+    console.log(isauth)
 
     const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
     
     useEffect(() => {
         if (userIcon === 'None') {
             let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
-            user_link.style.cssText = `background: url(src/images/header/login_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
+            if (isauth === 'not') {
+                user_link.style.cssText = `background: url(src/images/header/login_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
+            } else {
+                user_link.style.cssText = `background: url(src/images/header/empty_user_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
+            }
         }
     }, [])
     if (userIcon !== 'None') {
