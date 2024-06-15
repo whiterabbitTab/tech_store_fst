@@ -1,40 +1,18 @@
 import { ChangeEvent, ReactNode, useState } from "react";
 import { createUserSlice } from "../../store/userSlice/createUser.slice";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
+import { patterns } from "../../constants/patterns.constants";
 
 export const InputInfo = ({ type, label, placeholder, name }: { type: string, label: ReactNode, placeholder: string, name: string }) => {
 
   const [validate, setValidate] = useState<boolean>(true)
   const newuser = useTypedSelector(state => state.createUser)
   const dispatch = useTypedDispatch()
-  
-  const pattern_email = /[a-zA-Z]{3}[0-9a-zA-Z]*\d*@(gmail)*(yandex)*(mail)*[.]\D{2}\D*/
-  const pattern_password = /[0-9a-zA-Z$@!?%]{7}[0-9a-zA-Z$@!?%]*/
-  const pattern_name = /[A-Z]{1}[a-z]*/
-  const pattern_username = /[A-Za-z]{3}[A-Za-z0-9_$]*/
 
   const handleCreateUser = (e: ChangeEvent<HTMLInputElement>) => {
     const input_user = e.target
     let name_input: string = input_user.name
-    if (name_input === 'confirmpass') {
-      name_input = 'password'
-    }
-
-    switch(name_input) {
-      case 'email':
-        input_user.value.match(pattern_email) === null ? setValidate(false) : setValidate(true)
-        break
-      case 'password':
-        input_user.value.match(pattern_password) === null ? setValidate(false) : setValidate(true)
-        break
-      case 'firstname':
-      case 'surname':
-        input_user.value.match(pattern_name) === null ? setValidate(false) : setValidate(true)
-        break
-      case 'username':
-        input_user.value.match(pattern_username) === null ? setValidate(false) : setValidate(true)
-        break
-    }
+    input_user.value.match(patterns[name_input as keyof object]) === null ? setValidate(false) : setValidate(true)
 
     if (validate) {
       dispatch(createUserSlice.actions.createUser({

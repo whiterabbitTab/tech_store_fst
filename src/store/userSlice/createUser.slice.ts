@@ -6,6 +6,7 @@ const initialState: IUserCreate =
     username: 'None',
     email: 'None',
     password: 'None',
+    confirmpass: 'None',
     user_icon: 'None',
     firstname: 'None',
     surname: 'None',

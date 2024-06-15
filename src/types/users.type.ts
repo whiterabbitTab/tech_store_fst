@@ -14,4 +14,6 @@ export interface IUser {
     basket: IBasket[];
 }
 
-export interface IUserCreate extends Omit<IUser, "id"> {}
+export interface IUserCreate extends Omit<IUser, "id"> {
+    confirmpass?: string
+}

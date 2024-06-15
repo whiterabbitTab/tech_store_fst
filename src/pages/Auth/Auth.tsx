@@ -3,18 +3,38 @@ import { InputInfo } from '../../components/InputInfo/InputInfo';
 import styles from '../../styles/Auth.module.scss'
 import { inputValues } from '../../constants/auth.constants';
 import useLocalStorage from 'use-local-storage';
+import { useTypedSelector } from '../../hooks/redux';
+import { useCreateUserMutation, useGetAllUsersQuery } from '../../store/api/userApi';
+import { Bounce, ToastContainer } from 'react-toastify';
+import { userExist, differentPass, occupiedUsername, emptyFields } from '../../constants/authValidate.constants';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const Auth = () => {
 
   const [haveAccount, setHaveAccount] = useState<boolean>(true)
+  const { data: users } = useGetAllUsersQuery(null)
   const [isAuth, setIsAuth] = useLocalStorage<string>('isAuth', '')
+  const [ createUserAccount ] = useCreateUserMutation()
+
+  const userData = useTypedSelector(state => state.createUser)
   const account = () => {
     setIsAuth('ui1')
   }
 
   const createUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const form = e.target
-    console.log(form)
+    if (userData.email === 'None' || userData.password === 'None' ||  userData.username === 'None') {
+      emptyFields()
+    } else if (users?.filter(user => user.email === userData.email).length !== 0) {
+      userExist()
+    } else if (userData.password !== userData.confirmpass) {
+      differentPass()
+    } else if (users.filter(user => user.username === userData.username).length !== 0) {
+      occupiedUsername()
+    } else {
+      const { confirmpass: _, ...newUser } = userData
+      console.log(createUserAccount(newUser))
+    }
   }
 
   if (haveAccount) {
@@ -68,6 +88,7 @@ export const Auth = () => {
               <li>Track orders and more</li>
             </ul>
             <button onClick={() => setHaveAccount(!haveAccount)} className={styles.haveAcc__button}>I Have An Account</button>
+            <ToastContainer position='top-right' autoClose={5000} closeOnClick draggable theme='light' transition={Bounce} />
           </div>
         </div>
       </div>

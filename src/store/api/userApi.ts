@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IUser } from "../../types/users.type";
+import { IUser, IUserCreate } from "../../types/users.type";
 import { BASE_URL } from "../../constants/api.constants"
 
 
@@ -8,10 +8,26 @@ export const userApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
     tagTypes: ['User'],
     endpoints: builder => ({
+        getAllUsers: builder.query<IUser[], null>({
+            query: () => ({
+                url: '/users'
+            })
+        }),
         getUser: builder.query<IUser, string>({
             query: (id: string) => ({
                 url: `users/${id}`
             })
+        }),
+        createUser: builder.mutation<IUser, IUserCreate>({
+            query: (body) => ({
+                url: 'users',
+                method: 'POST',
+                body: body
+            }),
+            invalidatesTags: () => 
+                [{
+                    type: 'User'
+                }]
         }),
         changeCountProduct: builder.mutation<IUser, IUser>({
             query: (body) => ({
@@ -27,4 +43,4 @@ export const userApi = createApi({
     })
 })
 
-export const { useGetUserQuery, useChangeCountProductMutation } = userApi
+export const { useGetUserQuery, useChangeCountProductMutation, useGetAllUsersQuery, useCreateUserMutation } = userApi
