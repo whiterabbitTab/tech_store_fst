@@ -11,6 +11,9 @@ import { useTypedDispatch } from "./hooks/redux"
 import { useEffect } from "react"
 import { actions } from "./store/userSlice/user.slice"
 import useLocalStorage from "use-local-storage"
+import { UserAccount } from "./pages/UserAccount/UserAccount"
+import { DashboardMain } from "./components/Dashboard/DashboardMain"
+import { DashboardInfo } from "./components/Dashboard/DashboardInfo"
 
 export const App = () => {
 
@@ -29,6 +32,10 @@ export const App = () => {
         <Route path="/login" element={<Auth />} />
         <Route path="/product/*" element={<ProductLayout />}>
           <Route path=":id/*" element={<ProductPage />} />
+        </Route>
+        <Route path="/user/:id/*" element={<UserAccount />}>
+          <Route path="main" element={<DashboardMain />} />
+          <Route path="information" element={<DashboardInfo/>} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Route>

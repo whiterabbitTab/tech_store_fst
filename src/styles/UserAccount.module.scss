@@ -1,0 +1,35 @@
+.user__page {
+  @apply flex flex-col gap-y-7 w-[73%] py-5;
+
+  & > h1 {
+    @apply font-semibold text-[32px];
+  }
+
+  .dashboard__blocks {
+    @apply flex gap-x-[81px] w-full;
+
+    .dashboard__navigation {
+      @apply flex flex-col gap-y-2 w-[326px];
+
+      .dashboard__links {
+        @apply flex flex-col bg-[#F5F7FF] w-full py-3 gap-y-1;
+
+        .nav__link {
+          @apply transition-colors duration-200 text-[#8d8b8b] hover:text-[#0156FF] pl-4 py-2 text-[15px] font-semibold;
+        }
+
+        .nav__link_active {
+          @apply border-l-[3px] pl-[13px] text-black border-l-[#0156FF] hover:text-black;
+        }
+      }
+    }
+
+    .dashboard__main {
+      @apply flex flex-col w-[988px] gap-y-9;
+
+      p {
+        @apply text-[#8d8b8b] w-[230px] text-base;
+      }
+    }
+  }
+}

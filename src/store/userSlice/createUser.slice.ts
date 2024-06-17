@@ -19,7 +19,6 @@ export const createUserSlice = createSlice({
   reducers: {
     createUser: (state, {payload}: PayloadAction<IUserCreate>) => {
       state = payload
-      console.log(state)
       return state
     }
   }

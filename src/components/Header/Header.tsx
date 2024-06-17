@@ -9,25 +9,23 @@ export const Header = () => {
     const isauth = useTypedSelector(state => state.user.slice(1, -1))
     const { data: user } = userApi.useGetUserQuery(isauth)
     const userIcon = user === undefined ? 'None' : user.user_icon
-    console.log(isauth)
 
     const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
     
     useEffect(() => {
         if (userIcon === 'None') {
             let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
-            if (isauth === 'not') {
-                user_link.style.cssText = `background: url(src/images/header/login_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
+            if (isauth === 'o') {
+                user_link.style.cssText = `background: url(../../../public/login_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
             } else {
-                user_link.style.cssText = `background: url(src/images/header/empty_user_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
+                user_link.style.cssText = `background: url(../../../public/empty_user_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
             }
         }
-    }, [])
+    }, [isauth])
     if (userIcon !== 'None') {
         let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
         user_link.style.cssText = `background: url(${userIcon}) center center no-repeat; background-size: cover`
     }
-
 
     return(
         <header className={styles.header}>
@@ -56,7 +54,7 @@ export const Header = () => {
                     <div className={styles.user__links}>
                         <Link to="/" className={styles.search}></Link>
                         {user && user.basket && user.basket.length > 0 ? <Link to="/basket" className={styles.basket}><div className='relative left-[18px] flex items-center justify-center size-4 rounded-full bg-[#0156FF] text-white font-bold text-[10px]'>{user.basket.length}</div></Link> : <Link to="/basket" className={styles.basket}></Link>}
-                        <Link to="/login" className={styles.user}></Link>
+                        <Link to={`${isauth === 'not' ? '/login' : `user/${isauth}/main`}`} className={styles.user}></Link>
                     </div>
                 </section>
             </section>
