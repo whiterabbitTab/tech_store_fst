@@ -73,7 +73,7 @@ export const blocks: IBlocks[] = [
     paths: ['information', 'newsletter_subscriptions'],
     headerLink: {
       path: 'book',
-      name: 'Menage Addresses'
+      name: 'Manage Addresses'
     },
     secondLinks: undefined
   }

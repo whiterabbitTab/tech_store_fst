@@ -6,24 +6,19 @@ import useLocalStorage from 'use-local-storage';
 import { useTypedSelector } from '../../hooks/redux';
 import { useCreateUserMutation, useGetAllUsersQuery } from '../../store/api/userApi';
 import { Bounce, ToastContainer } from 'react-toastify';
-import { userExist, differentPass, occupiedUsername, emptyFields } from '../../constants/authValidate.constants';
+import { userExist, differentPass, occupiedUsername, emptyFields, emailnotexist, wrongpassword } from '../../constants/authValidate.constants';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { IUser } from '../../types/users.type';
 
 export const Auth = () => {
 
   const [haveAccount, setHaveAccount] = useState<boolean>(true)
-  const [newUserAccount, setNewUserAccount] = useState<IUser>()
   const { data: users } = useGetAllUsersQuery(null)
   const [isAuth, setIsAuth] = useLocalStorage<string>('isAuth', '')
   const [ createUserAccount ] = useCreateUserMutation()
   const navigate = useNavigate()
 
   const userData = useTypedSelector(state => state.createUser)
-  const account = () => {
-    setIsAuth('ui1')
-  }
 
   const createUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -45,19 +40,35 @@ export const Auth = () => {
     isAuth !== 'not' && navigate('/')
   }, [isAuth])
 
+  // login
+  const existUser = useTypedSelector(state => state.loginUser)
+
+  const loginAccount = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (users?.filter(user => user.email === existUser.email).length === 0) {
+      emailnotexist()
+    } else if(users?.filter(user => user.email === existUser.email).length === 1) {
+      if (users.filter(user => user.email === existUser.email)[0].password !== existUser.password) {
+        wrongpassword()
+      } else {
+        setIsAuth(users.filter(user => user.email === existUser.email)[0].id)
+      }
+    }
+  }
+
   if (haveAccount) {
     return(
       <div className={styles.auth__page}>
         <div className='flex flex-row text-xs font-semibold'>Home<span className='mx-2 text-[#0156FF]'>{">"}</span>Login</div>
         <h1>Customer Login</h1>
         <div className={styles.auth__blocks}>
-          <form className={styles.login__block}>
+          <form onSubmit={(e) => loginAccount(e)} className={styles.login__block}>
             <h1>Registered Customers</h1>
             <p>If you have an account, sign in with your email address.</p>
-            <InputInfo type='email' placeholder='Your E-mail' name='email' label={<label htmlFor='email'>Email<span>*</span></label>} />
-            <InputInfo type='password' placeholder='Your Password' name='password' label={<label htmlFor='email'>Password<span>*</span></label>} />
+            <InputInfo regtype='login' type='email' placeholder='Your E-mail' name='email' label={<label htmlFor='email'>Email<span>*</span></label>} />
+            <InputInfo regtype='login' type='password' placeholder='Your Password' name='password' label={<label htmlFor='email'>Password<span>*</span></label>} />
             <div className={styles.buttons}>
-              <button type='submit' className={styles.login__button} onClick={account}>Sign in</button>
+              <button type='submit' className={styles.login__button}>Sign in</button>
               <button type='button' className={styles.forgot_pass__button}>Forgot Your Password?</button>
             </div>
           </form>
@@ -70,6 +81,7 @@ export const Auth = () => {
               <li>Track orders and more</li>
             </ul>
             <button onClick={() => setHaveAccount(!haveAccount)} className={styles.createAcc__button}>Create An Account</button>
+            <ToastContainer position='top-right' autoClose={5000} closeOnClick draggable theme='light' transition={Bounce} />
           </div>
         </div>
       </div>
@@ -83,7 +95,7 @@ export const Auth = () => {
           <form onSubmit={createUser} className={styles.login__block}>
             <h1 className='w-full text-center'>Complete Forms</h1>
             {inputValues.map((input, i) => {
-              return <InputInfo key={i} placeholder={input.placeholder} type={input.type} label={input.label} name={input.name} />
+              return <InputInfo regtype='registration' key={i} placeholder={input.placeholder} type={input.type} label={input.label} name={input.name} />
             })}
             <button type='submit' className={`${styles.createAcc__button} ml-[25%] mt-8`}>Create An Account</button>
           </form>

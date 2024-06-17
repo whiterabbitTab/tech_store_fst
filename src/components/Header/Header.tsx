@@ -15,7 +15,7 @@ export const Header = () => {
     useEffect(() => {
         if (userIcon === 'None') {
             let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
-            if (isauth === 'o') {
+            if (isauth === 'not') {
                 user_link.style.cssText = `background: url(../../../public/login_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`
             } else {
                 user_link.style.cssText = `background: url(../../../public/empty_user_icon.png) center center no-repeat; background-size: cover; border-radius: 0;`

@@ -1,11 +1,20 @@
-import { NavLink, useLocation, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import styles from '../../styles/UserAccount.module.scss';
 import { Outlet } from 'react-router-dom';
 import { navigation } from '../../constants/useraccount.constants';
+import { useTypedSelector } from '../../hooks/redux';
+import { useEffect } from 'react';
 
 export const UserAccount = () => {
 
   const { id } = useParams<string>()
+  const userId = useTypedSelector(state => state.user)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (userId === 'not') {
+      navigate('/')
+    }
+  }, [userId])
 
   return(
     <div className={styles.user__page}>
