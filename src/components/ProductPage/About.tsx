@@ -15,8 +15,8 @@ export const About = ({ about }: { about: IAboutPage }) => {
               <HeadingProduct name={about.name} />
               <p className='max-w-[567px] font-normal text-lg'>{about.description}</p>
               <div className='flex gap-x-3'>
-                {about.colors.map((color: string) => {
-                  return <input id={color} style={{ backgroundColor: color }} className={`checked:outline-white checked:border-white size-[31px] rounded-full border-2 border-white cursor-pointer`}></input> // я так поставил, потому что bg-[${color}] не работает (((
+                {about.colors.map((color: string, i) => {
+                  return <input key={i} id={color} style={{ backgroundColor: color }} className={`checked:outline-white checked:border-white size-[31px] rounded-full border-2 border-white cursor-pointer`}></input> // я так поставил, потому что bg-[${color}] не работает (((
                 })}
               </div>
               <div className='flex justify-between w-[567px] mb-12'><p className='font-semibold text-base'>Have a Question?<Link to='#' className='text-[#0156FF] text-base ml-3 underline'>Contact Us</Link></p><p className='font-normal text-sm'>SKU D5515AI</p></div>

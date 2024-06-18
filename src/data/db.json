@@ -1147,10 +1147,23 @@
       "username": "sexy_girl123",
       "email": "nigger145@gmail.com",
       "password": "qwerty123",
-      "user_icon": "None",
+      "user_icon": "public/user_icon_KvFRLIx.png",
       "firstname": "Rose",
       "surname": "Smith",
-      "basket": [],
+      "basket": [
+        {
+          "id": "pi56",
+          "count": 2
+        },
+        {
+          "id": "pi134",
+          "count": 1
+        },
+        {
+          "id": "pi123",
+          "count": 1
+        }
+      ],
       "id": "KvFRLIx"
     },
     {

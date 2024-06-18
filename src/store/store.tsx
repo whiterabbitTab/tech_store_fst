@@ -4,13 +4,15 @@ import { productApi } from "./api/productApi";
 import { createUserSlice } from "./userSlice/createUser.slice";
 import { userSlice } from "./userSlice/user.slice";
 import { loginUserSlice } from "./userSlice/loginUser.slice";
+import { basketSlice } from "./userSlice/basket.slice";
 
 const reducers = combineReducers({
     [userApi.reducerPath]: userApi.reducer,
     [productApi.reducerPath]: productApi.reducer,
     user: userSlice.reducer,
     createUser: createUserSlice.reducer,
-    loginUser: loginUserSlice.reducer
+    loginUser: loginUserSlice.reducer,
+    basketSlice: basketSlice.reducer
 })
 
 export const store = configureStore({

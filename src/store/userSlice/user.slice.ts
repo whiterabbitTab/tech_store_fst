@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IBasket } from "../../types/users.type";
 
 const initialState: string = 'not'
 

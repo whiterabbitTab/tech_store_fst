@@ -2,18 +2,21 @@ import { Image } from 'antd';
 import styles from '../../styles/Basket.module.scss';
 import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { useGetProductByIdQuery } from '../../store/api/productApi';
-import { useChangeUserDataMutation, useGetUserQuery } from '../../store/api/userApi';
-import { account_id } from '../../constants/api.constants';
+import { useUpdateBasketMutation, useGetUserQuery } from '../../store/api/userApi';
 import { IBasket, IUser } from '../../types/users.type';
+import { useTypedSelector } from '../../hooks/redux';
 
 export const BasketItem = ({ id_product, count }: { id_product: string, count: number } ) => {
 
+  const isauth = useTypedSelector(state => state.user.slice(1,-1))
   const [countProducts, setCountProducts] = useState<string>(String(count))
-  const { data: product, isLoading, isSuccess, isError } = useGetProductByIdQuery(id_product)
-  const { data } = useGetUserQuery(account_id)
+  const { data: product, isLoading, isSuccess, isError } = useGetProductByIdQuery(id_product, {
+    pollingInterval: 3000
+  })
+  const { data } = useGetUserQuery(isauth)
   const [user, setUser] = useState<IUser>()
   const [newbasket, setBasket] = useState<IBasket[]>()
-  const [changeCount] = useChangeUserDataMutation()
+  const [changeCount] = useUpdateBasketMutation()
 
   useEffect(() => {
     setUser({...user, basket: newbasket})
@@ -38,6 +41,10 @@ export const BasketItem = ({ id_product, count }: { id_product: string, count: n
     setBasket(updatedBasket)
   }
 
+  const handleDeleteProduct = () => {
+    setBasket(user?.basket.filter((prod) => prod.id !== id_product))
+  }
+
   return(
     <>
       {
@@ -54,7 +61,7 @@ export const BasketItem = ({ id_product, count }: { id_product: string, count: n
           <div className='flex justify-between w-[182px] border-t-2 -translate-x-6 pl-6'>
             <h2 className='font-semibold text-base py-[25px]'>{`$${product.price * Number(countProducts)}`}</h2>
             <div className='flex flex-col mt-6 pr-2 justify-between h-[60px]'>
-              <button className='size-[26px] border-2 rounded-full border-[#CACDD8]' style={{ background: 'url(../../../public/krestik.png) center center no-repeat' }}></button>
+              <button onClick={handleDeleteProduct} className='size-[26px] border-2 rounded-full border-[#CACDD8]' style={{ background: 'url(../../../public/krestik.png) center center no-repeat' }}></button>
               <button className='size-[26px] border-2 rounded-full border-[#CACDD8]' style={{ background: 'url(../../../public/pen.png) center center no-repeat' }}></button>
             </div>
           </div>

@@ -15,6 +15,7 @@ export const Basket = () => {
   if (isauth === 'not') {
     navigate('/login')
   }
+  
 
   return(
     <div className={styles.basket__main}>
