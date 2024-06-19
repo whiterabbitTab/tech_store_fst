@@ -1,6 +1,7 @@
 export interface IBasket {
     id: string;
     count: number;
+    price: number;
 }
 
 export interface IUser {

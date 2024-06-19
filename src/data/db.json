@@ -1131,15 +1131,18 @@
       "basket": [
         {
           "id": "pi11",
-          "count": 3
+          "count": 3,
+          "price": 499
         },
         {
           "id": "pi655",
-          "count": 1
+          "count": 1,
+          "price": 499
         },
         {
           "id": "pi114",
-          "count": 3
+          "count": 3,
+          "price": 499
         }
       ]
     },
@@ -1152,16 +1155,29 @@
       "surname": "Smith",
       "basket": [
         {
+          "id": "pi655",
+          "count": 1,
+          "price": 499
+        },
+        {
           "id": "pi56",
-          "count": 2
+          "count": 2,
+          "price": 499
         },
         {
           "id": "pi134",
-          "count": 1
+          "count": 1,
+          "price": 499
         },
         {
           "id": "pi123",
-          "count": 1
+          "count": 1,
+          "price": 499
+        },
+        {
+          "id": "pi11",
+          "count": 1,
+          "price": 499
         }
       ],
       "id": "KvFRLIx"

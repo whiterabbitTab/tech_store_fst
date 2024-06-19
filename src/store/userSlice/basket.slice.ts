@@ -11,7 +11,6 @@ export const basketSlice = createSlice({
       if(state.filter(prod => prod.id === payload.id).length !== 1) {
         state = [...state, payload]
       } 
-      console.log(state)
       return state
     }
   }

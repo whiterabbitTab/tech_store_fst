@@ -27,7 +27,7 @@
         @apply flex items-center justify-between;
       }
 
-      button {
+      & > button {
         @apply text-center
       }
     }

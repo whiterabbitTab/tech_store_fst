@@ -8,6 +8,8 @@
   .basket__products {
     @apply grid gap-y-6;
     grid-template-columns: 420px 119px 89px 174px;
+    grid-auto-rows: 150px;
+    grid-template-rows: 20px;
 
     & > span {
       @apply font-semibold text-sm;
@@ -27,6 +29,61 @@
 
       p {
         @apply font-normal text-sm w-[271px];
+      }
+    }
+  }
+
+  .basket__payment {
+    @apply flex flex-col bg-[#F5F7FF] px-8 py-5 w-[446px] gap-y-5;
+
+    & > h1 {
+      @apply font-semibold text-2xl;
+    }
+    
+    .amount__list {
+      @apply flex flex-col w-full gap-y-3;
+
+      .info__row {
+        @apply flex items-center justify-between w-full py-2;
+      }
+
+      div > {
+
+        .payment__button {
+          @apply transition-all duration-200 flex items-center justify-center h-[50px] py-4 w-full font-semibold text-sm rounded-[50px];
+        }
+
+        .default__button {
+          @apply hover:bg-[#477fee] bg-[#0156FF] text-white;
+        }
+
+        .paypal__button {
+          @apply hover:bg-[#e99d47] bg-[#FFB800] text-[#232C65];
+        }
+
+        .other__button {
+          @apply hover:border-[#ced3df] hover:text-[#aeb3be] border-2 border-[#A2A6B0] bg-transparent text-[#A2A6B0];
+        }
+      }
+    }
+
+    .menu__items {
+      @apply w-full flex flex-col;
+
+      & > h1 {
+        @apply select-none transition-all duration-200 hover:bg-[#cecccc5b] items-center px-3 py-3 rounded-[10px] cursor-pointer flex justify-between w-full text-start font-medium text-lg; 
+        
+        img {
+          @apply transition-all duration-300 select-none;
+        }
+      }
+
+      & > ul {
+        @apply max-w-full px-3 mt-1;
+
+        li {
+          @apply text-[#666666] font-normal text-sm mb-2 w-[70%] break-words whitespace-normal;
+        }
       }
     }
   }

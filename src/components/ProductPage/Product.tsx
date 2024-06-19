@@ -13,23 +13,29 @@ import { lst_bg, lst_cards } from '../../constants/product';
 import { IAboutPage, IDetailsPage, ISpecsPage } from '../../types/productCard.type';
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { basketSlice } from '../../store/userSlice/basket.slice';
-import { useGetUserQuery } from '../../store/api/userApi';
+import { useGetUserQuery, useUpdateBasketMutation } from '../../store/api/userApi';
 
 export const Product = ({ product }: {product: IProduct}) => {
 
   const isauth = useTypedSelector(state => state.user.slice(1, -1))
+  const newBasket = useTypedSelector(state => state.basketSlice)
   const { data: user } = useGetUserQuery(isauth)
+  const [updateBasket] = useUpdateBasketMutation()
   const dispatch = useTypedDispatch()
   const navigate = useNavigate()
 
   const [count, setCount] = useState(1)
   const handleAddCart = (e: MouseEvent) => {
-    user && dispatch(basketSlice.actions.addToBasket({ id: product.id, count: 1 }))
+    user && dispatch(basketSlice.actions.addToBasket({ id: product.id, count: 1, price: product.price }))
   }
 
   useEffect(() => {
     user && user.basket.map((prod) => {dispatch(basketSlice.actions.addToBasket(prod))})
-  }, [])
+    if (newBasket.length !== 0 && user?.basket.length !== newBasket.length)
+      {
+        updateBasket({ ...user, basket: newBasket })
+      }
+  }, [newBasket])
 
   const about: IAboutPage = { name: product.name, description: product.description, colors: product.colors, image_about: product.image_about }
   const info: IDetailsPage  = { name: product.name, details: product.details, image_about: product.image_about }
