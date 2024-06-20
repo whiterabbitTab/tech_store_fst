@@ -20,7 +20,7 @@ export const Basket = () => {
   const [subtotal, setSubTotal] = useState<number>(0)
 
   const handleClearCart = () => {
-    updateBasket({ ...user, basket: [] })
+    user && updateBasket({ ...user, basket: [] })
   }
 
   useEffect(() => {

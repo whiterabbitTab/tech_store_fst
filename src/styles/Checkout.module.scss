@@ -1,0 +1,78 @@
+@use '../styles/Contact.module.scss' as cu;
+
+.checkout__page {
+  @apply flex justify-between w-[73%] gap-x-[30px] py-5;
+
+  .fields {
+    @apply flex flex-col gap-y-5 w-2/3;
+
+    & > h1 {
+      @apply font-semibold text-[32px];
+    }
+    .next__button {
+      @include cu.submitButton(210px);
+      @apply mt-6;
+    }
+  
+    .fields__data {
+      @apply flex flex-col gap-y-4;
+  
+      h2 {
+        @apply font-semibold text-lg;
+      }
+  
+      @include cu.inputStyle($width: 565px);
+
+      .checkout__options {
+        @apply flex flex-col gap-y-4 w-full;
+
+        input {
+          @apply size-5 cursor-pointer rounded-full;
+        }
+        
+        span {
+          @apply font-bold text-sm;
+        }
+      }
+    }
+  }
+
+  .checkout__information {
+    @apply flex flex-col w-1/3;
+
+    .checkout__progress {
+      @apply flex;
+    }
+
+    .order__list {
+      @apply flex flex-col gap-y-5 bg-[#F5F7FF] px-8 py-5;
+
+      & > h1 {
+        @apply font-semibold text-2xl;
+      }
+
+      .order__cart {
+        @apply flex gap-x-4 py-2;
+
+        .cart__info {
+          @apply flex flex-col gap-y-3;
+
+          & > p {
+            @apply font-normal text-sm max-w-[307px] text-ellipsis overflow-hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          
+          & > span {
+            @apply font-bold text-sm;
+
+            & > span {
+              @apply font-semibold text-[#A2A6B0] mr-3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

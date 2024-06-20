@@ -49,7 +49,7 @@
       @apply max-h-[432px];
     }
 
-    @include cu.inputStyle();
+    @include cu.inputStyle($width: 449px);
   }
 
   

@@ -14,6 +14,7 @@ import useLocalStorage from "use-local-storage"
 import { UserAccount } from "./pages/UserAccount/UserAccount"
 import { DashboardMain } from "./components/Dashboard/DashboardMain"
 import { DashboardInfo } from "./components/Dashboard/DashboardInfo"
+import { Checkout } from "./pages/Checkout/Checkout"
 
 export const App = () => {
 
@@ -30,6 +31,7 @@ export const App = () => {
         <Route path="/basket" element={<Basket />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Auth />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/product/*" element={<ProductLayout />}>
           <Route path=":id/*" element={<ProductPage />} />
         </Route>

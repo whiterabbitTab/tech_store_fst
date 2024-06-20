@@ -1,6 +1,14 @@
-@mixin inputStyle() {
-  input, textarea {
+@mixin inputStyle($width) {
+  input, textarea, select {
     @apply transition-[border] duration-200 focus:outline-[#518ceb] hover:border-[#518ceb] px-4 h-[50px] border border-[#b7bac0] rounded-md py-3 placeholder:text-sm placeholder:font-light;
+    width: $width;
+  }
+
+  select {
+    @apply cursor-pointer;
+  }
+  textarea {
+    @apply w-full;
   }
 
   label {
@@ -36,7 +44,7 @@
       grid-template-columns: repeat(2, 50%);
     }
 
-    @include inputStyle();
+    @include inputStyle($width: 449px);
 
     .submit__button {
       @include submitButton($width: 151px);

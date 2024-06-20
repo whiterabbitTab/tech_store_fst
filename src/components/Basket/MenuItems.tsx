@@ -1,8 +1,8 @@
 import { Image } from 'antd';
 import styles from '../../styles/Basket.module.scss';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, ReactNode, useState } from 'react';
 
-export const MenuItems = ({ heading, elements, id }: { heading: string, elements: string[], id: number }) => {
+export const MenuItems = ({ heading, elements, id }: { heading: string, elements: string[] | ReactNode[], id: number | string }) => {
   
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -18,7 +18,7 @@ export const MenuItems = ({ heading, elements, id }: { heading: string, elements
 
   return(
     <div className={styles.menu__items}>
-      <h1 onClick={handleDrop}>{heading}<Image style={{ rotate: '180deg' }} src='../../../public/arrow_down_icon.png' alt='Arrow Down' width={12} height={12} preview={false} /> </h1>
+      <h1 style={{ position: 'relative', zIndex: '1' }} className='transition-all duration-200 select-none items-center py-3 cursor-pointer flex justify-between w-full font-medium text-base' onClick={handleDrop}>{heading}<Image style={{ rotate: '180deg', position: 'relative', zIndex: '-1' }} src='../../../public/arrow_down_icon.png' alt='Arrow Down' width={12} height={12} preview={false} /> </h1>
       <ul id={String(id)}>
         {elements.map((elem, i) => {
           return <li key={i}>{elem}</li>
