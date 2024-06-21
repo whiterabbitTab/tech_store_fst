@@ -24,7 +24,7 @@ export const Header = () => {
     }, [isauth])
     if (userIcon !== 'None') {
         let user_link = document.getElementsByClassName(styles.user)[0] as HTMLLinkElement
-        user_link.style.cssText = `background: url(${userIcon}) center center no-repeat; background-size: cover`
+        user_link.style.cssText = `background: url(../../../${userIcon}) center center no-repeat; background-size: cover`
     }
 
     return(

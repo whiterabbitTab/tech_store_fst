@@ -1,3 +1,5 @@
+@use '../styles/Contact.module.scss' as cu;
+
 .user__page {
   @apply flex flex-col gap-y-7 w-[73%] py-5;
 
@@ -9,7 +11,7 @@
     @apply flex gap-x-[81px] w-full;
 
     .dashboard__navigation {
-      @apply flex flex-col gap-y-2 w-[326px];
+      @apply flex flex-col gap-y-2 min-w-[326px];
 
       .dashboard__links {
         @apply flex flex-col bg-[#F5F7FF] w-full py-3 gap-y-1;
@@ -25,10 +27,35 @@
     }
 
     .dashboard__main {
-      @apply flex flex-col w-[988px] gap-y-9;
+      @apply flex flex-col w-[72%] gap-y-9;
 
       p {
         @apply text-[#8d8b8b] w-[230px] text-base;
+      }
+    }
+  }
+
+  .account__information {
+    @apply flex flex-col w-[72%] gap-y-4;
+
+    @include cu.inputStyle($width: 565px);
+
+    h1 {
+      @apply font-bold text-lg;
+    }
+
+    .account__fields {
+      @apply flex gap-x-8 py-1;
+
+      .info__fields, .password__fields {
+        @apply flex flex-col gap-y-5;
+
+        button {
+          @include cu.submitButton($width: 210px);
+        }
+      }
+      .password__fields {
+        @apply items-end;
       }
     }
   }

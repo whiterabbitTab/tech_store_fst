@@ -6,6 +6,7 @@ interface IPatterns {
   firstname: RegExp;
   surname: RegExp;
   phone: RegExp;
+  newpassword: RegExp;
 }
 
 const pattern_email = /[a-zA-Z]{3}[0-9a-zA-Z]*\d*@(gmail)*(yandex)*(mail)*[.]\D{2}[a-z]*/
@@ -21,5 +22,6 @@ export const patterns: IPatterns = {
   email: pattern_email,
   password: pattern_password,
   confirmpass: pattern_password,
+  newpassword: pattern_password,
   phone: pattern_phone
 }

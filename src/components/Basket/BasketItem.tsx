@@ -2,7 +2,7 @@ import { Image } from 'antd';
 import styles from '../../styles/Basket.module.scss';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useGetProductByIdQuery } from '../../store/api/productApi';
-import { useUpdateBasketMutation, useGetUserQuery } from '../../store/api/userApi';
+import { useUpdateUserDataMutation, useGetUserQuery } from '../../store/api/userApi';
 import { IBasket, IUser } from '../../types/users.type';
 import { useTypedSelector } from '../../hooks/redux';
 
@@ -14,7 +14,7 @@ export const BasketItem = ({ id_product, count }: { id_product: string, count: n
   const { data } = useGetUserQuery(isauth)
   const [user, setUser] = useState<IUser>()
   const [newbasket, setBasket] = useState<IBasket[]>()
-  const [changeCount] = useUpdateBasketMutation()
+  const [changeCount] = useUpdateUserDataMutation()
 
   useEffect(() => {
     setUser({...user, basket: newbasket})

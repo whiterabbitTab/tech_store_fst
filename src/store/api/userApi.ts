@@ -33,7 +33,7 @@ export const userApi = createApi({
                     type: 'User'
                 }]
         }),
-        updateBasket: builder.mutation<IUser, IUser>({
+        updateUserData: builder.mutation<IUser, IUser>({
             query: (body) => ({
                 url: `users/${body.id}`,
                 method: 'PUT',
@@ -47,4 +47,4 @@ export const userApi = createApi({
     })
 })
 
-export const { useGetUserQuery, useGetAllUsersQuery, useCreateUserMutation, useUpdateBasketMutation } = userApi
+export const { useGetUserQuery, useGetAllUsersQuery, useCreateUserMutation, useUpdateUserDataMutation } = userApi

@@ -13,14 +13,14 @@ import { lst_bg, lst_cards } from '../../constants/product';
 import { IAboutPage, IDetailsPage, ISpecsPage } from '../../types/productCard.type';
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { basketSlice } from '../../store/userSlice/basket.slice';
-import { useGetUserQuery, useUpdateBasketMutation } from '../../store/api/userApi';
+import { useGetUserQuery, useUpdateUserDataMutation } from '../../store/api/userApi';
 
 export const Product = ({ product }: {product: IProduct}) => {
 
   const isauth = useTypedSelector(state => state.user.slice(1, -1))
   const newBasket = useTypedSelector(state => state.basketSlice)
   const { data: user } = useGetUserQuery(isauth)
-  const [updateBasket] = useUpdateBasketMutation()
+  const [updateBasket] = useUpdateUserDataMutation()
   const dispatch = useTypedDispatch()
   const navigate = useNavigate()
 

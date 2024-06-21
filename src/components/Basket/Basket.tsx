@@ -8,13 +8,13 @@ import { MenuItems } from './MenuItems';
 import { menuItems } from '../../constants/basket.constants';
 import { useEffect, useState } from 'react';
 import { Image } from 'antd';
-import { useUpdateBasketMutation } from '../../store/api/userApi';
+import { useUpdateUserDataMutation } from '../../store/api/userApi';
 
 export const Basket = () => {
 
   const isauth = useTypedSelector(state => state.user.slice(1,-1))
   const {data: user, isLoading, isSuccess} = useGetUserQuery(isauth)
-  const [updateBasket] = useUpdateBasketMutation()
+  const [updateBasket] = useUpdateUserDataMutation()
   const basket: IBasket[] = user ? user.basket : []
   const navigate = useNavigate()
   const [subtotal, setSubTotal] = useState<number>(0)

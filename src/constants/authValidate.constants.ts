@@ -9,3 +9,6 @@ export const emptyFields = () => toast.error("Fill in all required fields")
 // login
 export const emailnotexist = () => toast.error("This email is not registered")
 export const wrongpassword = () => toast.error("The wrong password was entered")
+
+// changeUserData
+export const samedata = () => toast.error("You haven't changed anything.")

@@ -1,3 +1,5 @@
+import { IINputInfo } from "../components/InputInfo/InputInfo";
+
 interface INavigation {
   path: string;
   text: string;
@@ -78,3 +80,56 @@ export const blocks: IBlocks[] = [
     secondLinks: undefined
   }
 ]
+
+export const fieldsInfo: IINputInfo[] = [
+  {
+    label: <label>Email</label>,
+    name: 'email',
+    placeholder: 'Your Email',
+    type: 'email',
+    regtype: 'changeAcc',
+  },
+  {
+    label: <label>Firstname</label>,
+    name: 'firstname',
+    placeholder: 'Your Firstname',
+    type: 'text',
+    regtype: 'changeAcc',
+  },
+  {
+    label: <label>Surname</label>,
+    name: 'surname',
+    placeholder: 'Your Surname',
+    type: 'text',
+    regtype: 'changeAcc',
+  },
+  {
+    label: <label>Username</label>,
+    name: 'username',
+    placeholder: 'Your Username',
+    type: 'text',
+    regtype: 'changeAcc',
+  },
+  {
+    label: <label>Old Password</label>,
+    name: 'password',
+    placeholder: 'Your Password',
+    type: 'password',
+    regtype: 'changePass',
+  },
+  {
+    label: <label>Confirm Password</label>,
+    name: 'confirmpassword',
+    placeholder: 'Confirm Password',
+    type: 'password',
+    regtype: 'changePass',
+  },
+  {
+    label: <label>New Password</label>,
+    name: 'newpassword',
+    placeholder: 'Your New Password',
+    type: 'password',
+    regtype: 'changePass',
+  }
+]
+{/* <InputInfo label={<label>Firstname</label>} name='firstname' placeholder='Your Firstname' type='text' regtype='changeAcc' value={'sadf'} /> */}

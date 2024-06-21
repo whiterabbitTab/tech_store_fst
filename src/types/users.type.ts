@@ -18,3 +18,5 @@ export interface IUser {
 export interface IUserCreate extends Omit<IUser, "id"> {
     confirmpass?: string
 }
+
+export interface IUserChange extends Omit<IUser, "id"> {}

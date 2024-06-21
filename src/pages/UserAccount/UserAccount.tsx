@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 export const UserAccount = () => {
 
   const { id } = useParams<string>()
-  const userId = useTypedSelector(state => state.user)
+  const userId = useTypedSelector(state => state.user.slice(1,-1))
   const navigate = useNavigate()
   useEffect(() => {
     if (userId === 'not') {
