@@ -40,6 +40,19 @@
   .checkout__information {
     @apply flex flex-col w-1/3;
 
+    .progress__checkout {
+      @apply flex w-full h-[146px];
+
+      p {
+        @apply text-base font-normal;
+      }
+
+      .shipping, .payment {
+        @apply flex w-full items-center justify-center;
+
+      }
+    }
+
     .checkout__progress {
       @apply flex;
     }

@@ -5,6 +5,7 @@ import { fields } from '../../constants/checkout.constants';
 import { useEffect } from 'react';
 import { Checkbox } from 'antd';
 import { OrderSummary } from '../../components/OrderSummary/OrderSummary';
+import { ProgressCheckout } from '../../components/ProgressCheckout/ProgressCheckout';
 
 export const Checkout = () => {
 
@@ -49,7 +50,7 @@ export const Checkout = () => {
         <button className={styles.next__button}>Next</button>
       </div>
       <div className={styles.checkout__information}>
-        
+        <ProgressCheckout completeFields={false} />
         <OrderSummary />
       </div>
     </div>
