@@ -44,6 +44,11 @@
                 .product__name {
                     @apply font-medium leading-[22px] text-[13px] overflow-hidden h-[65px];
                 }
+
+                .product__rate {
+                    @apply flex items-center gap-x-[2px];
+
+                }
             }
         }
         
