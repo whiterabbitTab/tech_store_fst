@@ -17,7 +17,6 @@ export const changeUserSlice = createSlice({
   reducers: {
     changeUser: (state, {payload}: PayloadAction<IUserChange>) => {
       state = payload
-      console.log(state)
       return state
     }
   }

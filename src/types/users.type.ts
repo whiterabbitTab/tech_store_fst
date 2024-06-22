@@ -20,3 +20,9 @@ export interface IUserCreate extends Omit<IUser, "id"> {
 }
 
 export interface IUserChange extends Omit<IUser, "id"> {}
+
+export interface IPassChange {
+    password: string;
+    confirmpassword: string;
+    newpassword: string;
+}

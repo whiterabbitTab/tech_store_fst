@@ -5,24 +5,41 @@ import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { useGetUserQuery, useUpdateUserDataMutation } from '../../store/api/userApi';
 import { ChangeEvent, useEffect } from 'react';
 import { changeUserSlice } from '../../store/userSlice/changeUser.slice';
-import { emptyFields, samedata } from '../../constants/authValidate.constants';
+import { donechange, emptyFields, samePassword, samedata, wrongpassword } from '../../constants/authValidate.constants';
+import { Bounce, ToastContainer } from 'react-toastify';
 
 export const DashboardInfo = () => {
 
   const isauth = useTypedSelector(state => state.user.slice(1,-1))
-  const changeUser = useTypedSelector(state => state.changeUserSlice)
+  const changedUser = useTypedSelector(state => state.changeUserSlice)
+  const changedPass = useTypedSelector(state => state.changePass)
   const dispatch = useTypedDispatch()
   const { data: user, isLoading, isSuccess } = useGetUserQuery(isauth)
   const [updateUser] = useUpdateUserDataMutation()
 
   const handleChangeData = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (changeUser === user) {
+    if (changedUser === user && changedPass.newpassword === '') {
       samedata()
-    } else if (Object.keys(changeUser).filter((key) => changeUser[key as keyof object] === '').length !== 0) {
+    } else if (Object.keys(changedUser).filter((key) => changedUser[key as keyof object] === '').length !== 0) {
       emptyFields()
     } else {
-      updateUser({...changeUser, id: user?.id})
+      user && updateUser({...changedUser, id: user.id})
+      donechange()
+    }
+  }
+  
+  const handleChangePassword = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (changedPass.confirmpassword !== changedPass.password) {
+      wrongpassword()
+    } else if (changedPass.password === changedPass.newpassword) {
+      samePassword()
+    } else if (Object.keys(changedPass).filter((key) => changedPass[key as keyof object] === '').length !== 0) {
+      emptyFields()
+    } else {
+      user && updateUser({ ...changedUser, password: changedPass.newpassword })
+      donePassword()
     }
   }
   
@@ -30,12 +47,19 @@ export const DashboardInfo = () => {
     user && dispatch(changeUserSlice.actions.changeUser(user))
   }, [user])
 
-  const handleChangePassword = (e: ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault()
-  }
-  
   return(
     <div className={styles.account__information}>
+      <ToastContainer position="top-right"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme="light"
+        transition={Bounce}
+        closeButton={false}
+      />
       <h1>Account Information</h1>
       <div className='mx-auto w-full h-[1px] bg-[#d4d3d3]'></div>
       <div className={styles.account__fields}>

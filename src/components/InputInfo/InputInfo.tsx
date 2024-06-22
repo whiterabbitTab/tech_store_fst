@@ -5,6 +5,7 @@ import { patterns } from "../../constants/patterns.constants";
 import { loginUserSlice } from "../../store/userSlice/loginUser.slice";
 import { countries, regions } from "../../constants/checkout.constants";
 import { changeUserSlice } from "../../store/userSlice/changeUser.slice";
+import { changePass } from "../../store/userSlice/changePass.slice";
 
 export interface IINputInfo {
   regtype?: string;
@@ -35,11 +36,15 @@ export const InputInfo = ({ regtype, type, label, placeholder, name, value }: II
           [name_input]: input_user.value
         }))
       } else if (regtype === 'checkout') {
-        console.log(input_user.value.match(patterns[name_input as keyof object]))
+        console.log('xyu z zov')
       } else if (regtype === 'changeAcc') {
         dispatch(changeUserSlice.actions.changeUser({
           ...changeduser,
           [name_input]: input_user.value
+        }))
+      } else if (regtype === 'changePass') {
+        dispatch(changePass.actions.changePass({ 
+          [name_input]: input_user.value 
         }))
       } else {
         dispatch(loginUserSlice.actions.login({
