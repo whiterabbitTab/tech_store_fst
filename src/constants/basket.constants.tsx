@@ -1,6 +1,9 @@
-interface IMenuItems {
+import { ReactNode } from "react";
+
+export interface IMenuItems {
   heading: string;
-  elements: string[];
+  elements: string[] | ReactNode[];
+  id?: string | number;
 }
 
 export const menuItems: IMenuItems[] = 

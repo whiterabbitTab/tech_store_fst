@@ -18,8 +18,8 @@ export const Carousel = ({ products, count, filter }: { products: IProduct[], co
   const backProd = () => {
     setCountProd(countProd - 1)
     if (countProd >= 1) setTranslate(translate + 234)
-    }
-    const filtered_products = filter ? products.filter((product) => product.maker === filter) : []
+  }
+  const filtered_products = filter ? products.filter((product) => product.maker === filter) : []
 
   return(
     <div className={styles.carousel__products}>
@@ -28,9 +28,9 @@ export const Carousel = ({ products, count, filter }: { products: IProduct[], co
       </button>
       <div id='carousel' className={styles.carousel} style={{ transform: `translateX(${translate}px)` }}>
         {filter ? filtered_products.map((card, i) => {
-          return <ProductCard key={i} prod={card} />
+          return <ProductCard styles={styles} key={i} prod={card} />
         }) : products.map((card, i) => {
-          return <ProductCard key={i} prod={card} />
+          return <ProductCard styles={styles} key={i} prod={card} />
         })}
       </div>
       <button style={{ display: `${countProd === length_products + 1 ? 'none' : 'flex'}` }} className={styles.arrow__right} onClick={nextProd}>

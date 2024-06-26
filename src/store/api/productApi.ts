@@ -8,10 +8,23 @@ export const productApi = createApi({
     baseUrl: BASE_URL
   }),
   endpoints: builder => ({
-    getProducts: builder.query<IProduct[], null>({
-      query: () => ({
-        url: '/products'
-      })
+    getProducts: builder.query<IProduct[], {start: number, end: number} | null>({
+      query: (par) => {
+        if (par === null) {
+          return {
+            url: '/products'
+          }
+        } else {
+          const { start, end } = par
+          return {
+            url: '/products',
+            params: {
+              _start: start,
+              _limit: end
+            }
+          }
+        }
+      }
     }),
     getProductById: builder.query<IProduct, string>({
       query: (id: string) => ({

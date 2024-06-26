@@ -2,7 +2,7 @@ import { Image } from 'antd';
 import styles from '../../styles/Basket.module.scss';
 import { MouseEvent, ReactNode, useState } from 'react';
 
-export const MenuItems = ({ heading, elements, id }: { heading: string, elements: string[] | ReactNode[], id: number | string }) => {
+export const MenuItems = ({ heading, elements, id }: { heading: string, elements: string[] | ReactNode[], id?: number | string }) => {
   
   const [isOpen, setIsOpen] = useState<boolean>(false)
 

@@ -3,6 +3,7 @@ import { userApi } from '../../store/api/userApi';
 import styles from '../../styles/Header.module.scss'
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../../hooks/redux';
+import { Image } from 'antd';
 
 export const Header = () => {
 
@@ -10,7 +11,7 @@ export const Header = () => {
     const { data: user } = userApi.useGetUserQuery(isauth)
     const userIcon = user === undefined ? 'None' : user.user_icon
 
-    const lst_links = [['', '/'], ['Laptops', '/'], ['Desktop PCs', '/'], ['Networking Devices', '/'], ['Printers & Scanners', '/'], ['PC Parts', '/'], ['All Other Products', '/'], ['Repairs', '/'], ['Our Deals', '/']] 
+    const lst_links = [[<Image src='../../../public/logo.png' alt='Logo' preview={false} width={23} height={28} />, '/'], ['Laptops', 'catalog/laptop'], ['Desktop PCs', 'catalog/desktop'], ['Networking Devices', 'catalog/netdev'], ['Printers & Scanners', 'catalog/scan'], ['PC Parts', 'catalog/pcparts'], ['All Other Products', 'catalog/other'], ['Repairs', '/'], ['Our Deals', '/']] 
     
     useEffect(() => {
         if (userIcon === 'None') {
@@ -47,7 +48,7 @@ export const Header = () => {
                     <div className={styles.pages__links}>
                         {lst_links.map((el, i) => {
                             return (
-                                <Link key={i} to={el[1]}>{el[0]}</Link>
+                                <Link className='' key={i} to={el[1]}>{el[0]}</Link>
                             )
                         })}
                     </div>

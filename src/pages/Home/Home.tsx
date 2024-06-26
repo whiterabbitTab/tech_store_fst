@@ -6,8 +6,13 @@ import { ProductsCarousels } from "../../components/ProductsHome/ProductsCarouse
 import { HomeLogotypes } from "../../components/HomeLogotypes/HomeLogotypes";
 import { SocialCards } from "../../components/SocialCards/SocialCards";
 import { Reviews } from "../../components/Reviews/Reviews";
+import { useEffect } from "react";
 
 export const Home = () => {
+
+    useEffect(() => {
+        document.body.scrollTop = 0
+    }, [])
 
     return(
         <div className={styles.home__page}>

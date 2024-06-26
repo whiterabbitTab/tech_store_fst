@@ -36,7 +36,7 @@
   .about__block, .details__block, .specs__block {
     @apply flex w-full h-[747px];
 
-    .product__block {
+    & > .product__block {
       @apply flex justify-center w-full;
 
       .product__info {

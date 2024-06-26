@@ -71,7 +71,7 @@ $lst: '../../images/header/facebook_icon.png','../../images/header/instagram_ico
             }
             
             .pages__links > a:nth-child(1) {
-                @apply hover:opacity-100;
+                @apply flex items-center hover:opacity-100;
                 @include image($bg-image: '../../images/header/logo.png', $width: 35px, $height: 45px);
             }
         }
