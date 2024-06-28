@@ -13,7 +13,7 @@ export const FilterBlock = () => {
     const div = e.target as HTMLDivElement
     color.includes(div.style.backgroundColor) === false ? setColor([...color, div.style.backgroundColor]) : setColor(color.filter(clr => clr !== div.style.backgroundColor))
   }
-  const handleAddMaker = (e: MouseEvent<HTMLImageElement>) => {
+  const handleAddMaker = (e: MouseEvent<HTMLDivElement>) => {
     const img = e.target as HTMLImageElement
     images.includes(img.getAttribute('alt') as string) === false ? setImages([...images, img.getAttribute('alt') as string]) : setImages(images.filter(image => image !== img.getAttribute('alt')))
   }
@@ -44,6 +44,19 @@ export const FilterBlock = () => {
               })}
             </div>
           </div>
+          <div className='flex flex-col items-center gap-y-6 py-4 mt-8 px-1 bg-[#F5F7FF]'>
+            <h1 className='font-bold text-base'>Compare Products</h1>
+            <div className='flex flex-col gap-y-1 items-center w-full'>
+              <p className='font-medium text-[13px]'>You have no items to compare</p>
+            </div>
+          </div>
+          <div className='flex flex-col items-center gap-y-6 py-4 px-1 bg-[#F5F7FF]'>
+            <h1 className='font-bold text-base'>My Wish List</h1>
+            <div className='flex flex-col gap-y-1 items-center w-full'>
+              <p className='font-medium text-[13px]'>You have no item in your wish list</p>
+            </div>
+          </div>
+          <Image src='../../../public/catalog_filter_image.png' alt='catalog' preview={false} className='mt-5'  />
         </div>
       </div>
     </div>

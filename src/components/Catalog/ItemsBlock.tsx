@@ -1,19 +1,21 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect } from 'react';
 import styles from '../../styles/Catalog.module.scss';
 import { useGetProductsQuery } from '../../store/api/productApi';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { FilterBlock } from './FilterBlock';
+import { ProductCardCatalog } from '../ProductCard/ProductCardCatalog';
 
-export const ItemsBlock = () => {
+export const ItemsBlock = ({ showGridProd }: { showGridProd: CSSProperties }) => {
 
   const { data: products, isLoading, isSuccess } = useGetProductsQuery(null)
-  const [prodListStyle, setProdListStyle] = useState<CSSProperties>()
-  const [showGridProd, setShowGridProd] = useState<boolean>(true)
+  console.log(showGridProd)
 
   useEffect(() => {
-    if (showGridProd === true) {
-      setProdListStyle({ display: "grid", gridTemplateColumns: 'repeat(5, 234px)' })
-    }
+    const prodList = document.getElementsByClassName(styles.products__block)[0] as HTMLDivElement
+    prodList.style.opacity = '0'
+    setTimeout(() => {
+      prodList.style.opacity = '100'
+    }, 400);
   }, [showGridProd])
 
   return(
@@ -21,8 +23,11 @@ export const ItemsBlock = () => {
       <FilterBlock />
       <div className={styles.products__block}>
         <div className={styles.selected__filters}></div>
-        <div style={ prodListStyle } className={styles.products__list}>
-          {isLoading ? (<div>Loading</div>) : isSuccess ? products.map((product, i) => {
+        <div style={ showGridProd } className={styles.products__list}>
+          {isLoading ? (<div>Loading</div>) : isSuccess ?  showGridProd.gridTemplateColumns === '1170px' ? 
+          products.map((product, i) => {
+            return <ProductCardCatalog prod={product} key={i} />
+          }) : products.map((product, i) => {
             return <ProductCard styles={styles} prod={product} key={i} />
           }) : (<div>Not Found</div>)}
         </div>

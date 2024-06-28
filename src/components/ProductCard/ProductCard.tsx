@@ -25,7 +25,7 @@ export const ProductCard = ({ prod, styles }: { prod:IProduct, styles: CSSModule
       </div>
       <p className={styles.product__name}>{prod.description}</p>
       <div className={styles.price}>
-        {prod.discount !== 0 ? (<><span className={styles.price}>{`${prod.price}$`}</span><span className={styles.prev__price}><div />{`${prod.price * ((100-prod.discount)/100)} $`}</span></>) : (<span className={styles.price}>{`${prod.price}$`}</span>)}
+        {prod.discount !== 0 ? (<><span className={styles.price}>{`${(prod.price * ((100-prod.discount)/100)).toFixed(2)}$`}</span><span className={styles.prev__price}><div />{`${prod.price}$`}</span></>) : (<span className={styles.price}>{`${prod.price}$`}</span>)}
       </div>
     </Link>
   );

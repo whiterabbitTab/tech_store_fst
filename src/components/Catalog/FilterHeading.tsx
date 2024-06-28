@@ -1,7 +1,8 @@
 import { Image } from 'antd';
 import styles from '../../styles/Catalog.module.scss';
+import { CSSProperties, Dispatch, useEffect, useState } from 'react';
 
-export const FilterHeading = () => {
+export const FilterHeading = ({ showGridProd, setShowGridProd }: { showGridProd: CSSProperties; setShowGridProd: Dispatch<React.SetStateAction<CSSProperties>>}) => {
   return(
     <div className={styles.filter__heading}>
         <button><span className='text-center mr-[5px] text-sm'>{"‹"}</span>Back</button>
@@ -18,8 +19,8 @@ export const FilterHeading = () => {
               <option value="35">35 per page</option>
               <option value="50">50 per page</option>
             </select>
-            <Image className='cursor-pointer' src='../../../public/grid_active.png' alt='Grid' preview={false} />
-            <Image className='cursor-pointer' src='../../../public/one_elem.png' alt='oneElem' preview={false} />
+            <Image id='fiveElem' className={`translate-opacity duration-300 cursor-pointer ${showGridProd.gridTemplateColumns === '1170px' ? 'opacity-45' : 'opacity-100'}`} src='../../../public/grid_active.png' alt='Grid' preview={false} onClick={() => setShowGridProd({ gridTemplateColumns: 'repeat(5, 234px)' })} />
+            <Image id='oneElem' className={`translate-opacity duration-300 cursor-pointer ${showGridProd.gridTemplateColumns === '1170px' ? 'opacity-100' : 'opacity-45'}`} src='../../../public/one_elem_active.png' alt='oneElem' preview={false} onClick={() => setShowGridProd({ gridTemplateColumns: '1170px' })} />
           </div>
         </div>
       </div>
