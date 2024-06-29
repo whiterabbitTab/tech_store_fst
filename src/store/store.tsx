@@ -7,6 +7,7 @@ import { loginUserSlice } from "./userSlice/loginUser.slice";
 import { basketSlice } from "./userSlice/basket.slice";
 import { changeUserSlice } from "./userSlice/changeUser.slice";
 import { changePass } from "./userSlice/changePass.slice";
+import { filterSlice } from "./catalogSlice/filters.slice";
 
 const reducers = combineReducers({
     [userApi.reducerPath]: userApi.reducer,
@@ -16,7 +17,8 @@ const reducers = combineReducers({
     loginUser: loginUserSlice.reducer,
     basketSlice: basketSlice.reducer,
     changeUserSlice: changeUserSlice.reducer,
-    changePass: changePass.reducer
+    changePass: changePass.reducer,
+    filterSlice: filterSlice.reducer
 })
 
 export const store = configureStore({

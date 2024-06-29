@@ -7,7 +7,7 @@ import { ProductsHome } from './ProductsHome';
 export const ProductsCarousels = () => {
 
   const { data: products, isLoading, isSuccess } = useGetProductsQuery(null)
-  const custom_products: IProduct[] | undefined = products?.filter((prod) => prod.type === 'custom' && prod.status === 'in_stock')
+  const custom_products: IProduct[] | undefined = products?.filter((prod) => prod.category === 'custom' && prod.status === 'in_stock')
   const msi_products: IProduct[] | undefined = products?.filter((prod) => prod.name.includes('MSI') && prod.status === 'in_stock')
   const desktop_products: IProduct[] | undefined = products?.filter((prod) => prod.type === 'desktop' && prod.status === 'in_stock')
   const monitors_products: IProduct[] | undefined = products?.filter((prod) => prod.type === 'monitor' && prod.status === 'in_stock')

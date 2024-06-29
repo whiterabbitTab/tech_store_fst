@@ -3,8 +3,9 @@
     {
       "id": "pi123",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
-      "price": 499,
+      "price": 2099,
       "discount": 20,
       "name": "MSI MPG Trident 3",
       "reviews": 3,
@@ -12,9 +13,7 @@
         "red",
         "black",
         "#f0f0f0",
-        "gray",
-        "blue",
-        "green"
+        "gray"
       ],
       "maker": "MSI Infinute Series",
       "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
@@ -49,8 +48,9 @@
     {
       "id": "pi134",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
-      "price": 499,
+      "price": 3499,
       "discount": 12,
       "name": "MSI MPG Trident 3",
       "reviews": 4,
@@ -96,7 +96,7 @@
       "id": "pi114",
       "type": "desktop",
       "status": "in_stock",
-      "price": 499,
+      "price": 1099,
       "discount": 0,
       "name": "MSI MPG Trident 3",
       "reviews": 5,
@@ -104,8 +104,6 @@
         "red",
         "black",
         "#f0f0f0",
-        "gray",
-        "blue",
         "green"
       ],
       "maker": "MSI Infinute Series",
@@ -140,16 +138,15 @@
     },
     {
       "id": "pi900",
-      "type": "laptops",
+      "type": "laptop",
+      "category": "custom",
       "status": "in_stock",
-      "price": 499,
+      "price": 209,
       "discount": 0,
       "name": "MSI MPG Trident 3",
       "reviews": 4,
       "colors": [
         "red",
-        "black",
-        "#f0f0f0",
         "gray",
         "blue",
         "green"
@@ -186,18 +183,15 @@
     },
     {
       "id": "pi56",
-      "type": "laptops",
+      "type": "laptop",
+      "category": "custom",
       "status": "in_stock",
-      "price": 499,
+      "price": 899,
       "discount": 0,
       "name": "MSI MPG Trident 3",
       "reviews": 4,
       "colors": [
         "red",
-        "black",
-        "#f0f0f0",
-        "gray",
-        "blue",
         "green"
       ],
       "maker": "MSI GS Series",
@@ -233,6 +227,7 @@
     {
       "id": "pi1",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -241,10 +236,7 @@
       "colors": [
         "red",
         "black",
-        "#f0f0f0",
-        "gray",
-        "blue",
-        "green"
+        "#f0f0f0"
       ],
       "maker": "MSI Infinute Series",
       "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
@@ -279,6 +271,7 @@
     {
       "id": "pi78",
       "type": "desktop",
+      "category": "custom",
       "status": "check_availability",
       "price": 499,
       "discount": 0,
@@ -287,9 +280,6 @@
       "colors": [
         "red",
         "black",
-        "#f0f0f0",
-        "gray",
-        "blue",
         "green"
       ],
       "maker": "SKU D5515AI",
@@ -324,7 +314,8 @@
     },
     {
       "id": "pi88",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -370,7 +361,8 @@
     },
     {
       "id": "pi563",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -416,7 +408,8 @@
     },
     {
       "id": "pi801",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -462,7 +455,8 @@
     },
     {
       "id": "pi704",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -508,7 +502,8 @@
     },
     {
       "id": "pi11",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -554,7 +549,8 @@
     },
     {
       "id": "pi11",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -600,7 +596,8 @@
     },
     {
       "id": "pi11",
-      "type": "custom",
+      "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -646,7 +643,8 @@
     },
     {
       "id": "pi124",
-      "type": "laptops",
+      "type": "laptop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -692,7 +690,8 @@
     },
     {
       "id": "pi890",
-      "type": "laptops",
+      "type": "laptop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -738,7 +737,8 @@
     },
     {
       "id": "pi125",
-      "type": "laptops",
+      "type": "laptop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -785,6 +785,7 @@
     {
       "id": "pi802",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -831,6 +832,7 @@
     {
       "id": "pi18",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -877,6 +879,7 @@
     {
       "id": "pi12",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -923,6 +926,7 @@
     {
       "id": "pi116",
       "type": "desktop",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -969,6 +973,7 @@
     {
       "id": "pi909",
       "type": "monitor",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -1015,6 +1020,7 @@
     {
       "id": "pi98",
       "type": "monitor",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -1061,6 +1067,7 @@
     {
       "id": "pi334",
       "type": "monitor",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -1107,6 +1114,7 @@
     {
       "id": "pi655",
       "type": "monitor",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -1153,6 +1161,7 @@
     {
       "id": "pi1111",
       "type": "monitor",
+      "category": "custom",
       "status": "in_stock",
       "price": 499,
       "discount": 0,
@@ -1169,6 +1178,273 @@
       "maker": "SKU D5515AI",
       "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
       "image": "../../public/product1111.png",
+      "image_about": [
+        "../../public/product144_about.png",
+        "../../public/product144_about.png",
+        "../../public/product144_about.png"
+      ],
+      "date_created": "2024-05-30T17:18:13",
+      "details": [
+        "Intel Core i7-10700F",
+        "NVIDIA MSI GeForce RTX 2060 SUPER 8GB AERO ITX GDDR6",
+        "SO-DIMM 16GB (16GB x 1) DDR4 2666MHz",
+        "2 total slots (64GB Max)",
+        "512GB (1 x 512GB) M.2 NVMe PCIe GEN3x4 SSD 2TB (2.5) 5400RPM",
+        "Gaming Keyboard GK30 + Gaming Mouse GM11",
+        "Intel WGI219Vethernet (10/100/1000M)",
+        "AX200 (WIFI 6)+BT5.1",
+        "Fan Cooler",
+        "PSU 330W",
+        "3.5 HDD (0/0), 2.5 HDD/SSD(1/0), M.2 (1/0)",
+        "Intel H410",
+        "WHITE"
+      ],
+      "specs": {
+        "cpu": "N/A",
+        "featured": "N/A",
+        "io_ports": "N/A"
+      }
+    },
+    {
+      "id": "pi144",
+      "type": "laptop",
+      "category": "custom",
+      "status": "in_stock",
+      "price": 1999,
+      "discount": 10,
+      "name": "MSI MPG Trident 3",
+      "reviews": 4,
+      "colors": [
+        "red",
+        "black",
+        "#f0f0f0"
+      ],
+      "maker": "SKU D5515AI",
+      "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
+      "image": "../../public/product144.png",
+      "image_about": [
+        "../../public/product144_about.png",
+        "../../public/product144_about.png",
+        "../../public/product144_about.png"
+      ],
+      "date_created": "2024-05-30T17:18:13",
+      "details": [
+        "Intel Core i7-10700F",
+        "NVIDIA MSI GeForce RTX 2060 SUPER 8GB AERO ITX GDDR6",
+        "SO-DIMM 16GB (16GB x 1) DDR4 2666MHz",
+        "2 total slots (64GB Max)",
+        "512GB (1 x 512GB) M.2 NVMe PCIe GEN3x4 SSD 2TB (2.5) 5400RPM",
+        "Gaming Keyboard GK30 + Gaming Mouse GM11",
+        "Intel WGI219Vethernet (10/100/1000M)",
+        "AX200 (WIFI 6)+BT5.1",
+        "Fan Cooler",
+        "PSU 330W",
+        "3.5 HDD (0/0), 2.5 HDD/SSD(1/0), M.2 (1/0)",
+        "Intel H410",
+        "WHITE"
+      ],
+      "specs": {
+        "cpu": "N/A",
+        "featured": "N/A",
+        "io_ports": "N/A"
+      }
+    },
+    {
+      "id": "pi149",
+      "type": "laptop",
+      "category": "custom",
+      "status": "in_stock",
+      "price": 499,
+      "discount": 0,
+      "name": "MSI MPG Trident 3",
+      "reviews": 4,
+      "colors": [
+        "#f0f0f0",
+        "gray",
+        "green"
+      ],
+      "maker": "SKU D5515AI",
+      "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
+      "image": "../../public/product149.png",
+      "image_about": [
+        "../../public/product144_about.png",
+        "../../public/product144_about.png",
+        "../../public/product144_about.png"
+      ],
+      "date_created": "2024-05-30T17:18:13",
+      "details": [
+        "Intel Core i7-10700F",
+        "NVIDIA MSI GeForce RTX 2060 SUPER 8GB AERO ITX GDDR6",
+        "SO-DIMM 16GB (16GB x 1) DDR4 2666MHz",
+        "2 total slots (64GB Max)",
+        "512GB (1 x 512GB) M.2 NVMe PCIe GEN3x4 SSD 2TB (2.5) 5400RPM",
+        "Gaming Keyboard GK30 + Gaming Mouse GM11",
+        "Intel WGI219Vethernet (10/100/1000M)",
+        "AX200 (WIFI 6)+BT5.1",
+        "Fan Cooler",
+        "PSU 330W",
+        "3.5 HDD (0/0), 2.5 HDD/SSD(1/0), M.2 (1/0)",
+        "Intel H410",
+        "WHITE"
+      ],
+      "specs": {
+        "cpu": "N/A",
+        "featured": "N/A",
+        "io_ports": "N/A"
+      }
+    },
+    {
+      "id": "pi156",
+      "type": "laptop",
+      "category": "custom",
+      "status": "in_stock",
+      "price": 5000,
+      "discount": 10,
+      "name": "MSI MPG Trident 3",
+      "reviews": 4,
+      "colors": [
+        "red",
+        "gray",
+        "green"
+      ],
+      "maker": "SKU D5515AI",
+      "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
+      "image": "../../public/product156.png",
+      "image_about": [
+        "../../public/product144_about.png",
+        "../../public/product144_about.png",
+        "../../public/product144_about.png"
+      ],
+      "date_created": "2024-05-30T17:18:13",
+      "details": [
+        "Intel Core i7-10700F",
+        "NVIDIA MSI GeForce RTX 2060 SUPER 8GB AERO ITX GDDR6",
+        "SO-DIMM 16GB (16GB x 1) DDR4 2666MHz",
+        "2 total slots (64GB Max)",
+        "512GB (1 x 512GB) M.2 NVMe PCIe GEN3x4 SSD 2TB (2.5) 5400RPM",
+        "Gaming Keyboard GK30 + Gaming Mouse GM11",
+        "Intel WGI219Vethernet (10/100/1000M)",
+        "AX200 (WIFI 6)+BT5.1",
+        "Fan Cooler",
+        "PSU 330W",
+        "3.5 HDD (0/0), 2.5 HDD/SSD(1/0), M.2 (1/0)",
+        "Intel H410",
+        "WHITE"
+      ],
+      "specs": {
+        "cpu": "N/A",
+        "featured": "N/A",
+        "io_ports": "N/A"
+      }
+    },
+    {
+      "id": "pi221",
+      "type": "laptop",
+      "category": "custom",
+      "status": "in_stock",
+      "price": 1345,
+      "discount": 0,
+      "name": "MSI MPG Trident 3",
+      "reviews": 4,
+      "colors": [
+        "red",
+        "black",
+        "#f0f0f0",
+        "gray",
+        "blue",
+        "green"
+      ],
+      "maker": "SKU D5515AI",
+      "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
+      "image": "../../public/product221.png",
+      "image_about": [
+        "../../public/product144_about.png",
+        "../../public/product144_about.png",
+        "../../public/product144_about.png"
+      ],
+      "date_created": "2024-05-30T17:18:13",
+      "details": [
+        "Intel Core i7-10700F",
+        "NVIDIA MSI GeForce RTX 2060 SUPER 8GB AERO ITX GDDR6",
+        "SO-DIMM 16GB (16GB x 1) DDR4 2666MHz",
+        "2 total slots (64GB Max)",
+        "512GB (1 x 512GB) M.2 NVMe PCIe GEN3x4 SSD 2TB (2.5) 5400RPM",
+        "Gaming Keyboard GK30 + Gaming Mouse GM11",
+        "Intel WGI219Vethernet (10/100/1000M)",
+        "AX200 (WIFI 6)+BT5.1",
+        "Fan Cooler",
+        "PSU 330W",
+        "3.5 HDD (0/0), 2.5 HDD/SSD(1/0), M.2 (1/0)",
+        "Intel H410",
+        "WHITE"
+      ],
+      "specs": {
+        "cpu": "N/A",
+        "featured": "N/A",
+        "io_ports": "N/A"
+      }
+    },
+    {
+      "id": "pi433",
+      "type": "monitor",
+      "category": "custom",
+      "status": "in_stock",
+      "price": 4999,
+      "discount": 15,
+      "name": "MSI MPG Trident 3",
+      "reviews": 4,
+      "colors": [
+        "black",
+        "#f0f0f0",
+        "blue"
+      ],
+      "maker": "SKU D5515AI",
+      "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
+      "image": "../../public/product433.png",
+      "image_about": [
+        "../../public/product144_about.png",
+        "../../public/product144_about.png",
+        "../../public/product144_about.png"
+      ],
+      "date_created": "2024-05-30T17:18:13",
+      "details": [
+        "Intel Core i7-10700F",
+        "NVIDIA MSI GeForce RTX 2060 SUPER 8GB AERO ITX GDDR6",
+        "SO-DIMM 16GB (16GB x 1) DDR4 2666MHz",
+        "2 total slots (64GB Max)",
+        "512GB (1 x 512GB) M.2 NVMe PCIe GEN3x4 SSD 2TB (2.5) 5400RPM",
+        "Gaming Keyboard GK30 + Gaming Mouse GM11",
+        "Intel WGI219Vethernet (10/100/1000M)",
+        "AX200 (WIFI 6)+BT5.1",
+        "Fan Cooler",
+        "PSU 330W",
+        "3.5 HDD (0/0), 2.5 HDD/SSD(1/0), M.2 (1/0)",
+        "Intel H410",
+        "WHITE"
+      ],
+      "specs": {
+        "cpu": "N/A",
+        "featured": "N/A",
+        "io_ports": "N/A"
+      }
+    },
+    {
+      "id": "pi1991",
+      "type": "laptop",
+      "category": "custom",
+      "status": "in_stock",
+      "price": 2100,
+      "discount": 0,
+      "name": "MSI MPG Trident 3",
+      "reviews": 4,
+      "colors": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "maker": "SKU D5515AI",
+      "description": "MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop",
+      "image": "../../public/product1991.png",
       "image_about": [
         "../../public/product144_about.png",
         "../../public/product144_about.png",

@@ -1,20 +1,38 @@
 import { Image } from 'antd';
 import styles from '../../styles/Catalog.module.scss';
-import { CSSProperties, Dispatch, useEffect, useState } from 'react';
+import { CSSProperties, ChangeEvent, Dispatch, useEffect, useState } from 'react';
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
+import { filterSlice } from '../../store/catalogSlice/filters.slice';
 
 export const FilterHeading = ({ showGridProd, setShowGridProd }: { showGridProd: CSSProperties; setShowGridProd: Dispatch<React.SetStateAction<CSSProperties>>}) => {
+  
+  const filter = useTypedSelector(state => state.filterSlice)
+  const dispatch = useTypedDispatch()
+
+  const handleChangePer = (e: ChangeEvent<HTMLSelectElement>) => {
+    const selectTag = e.target as HTMLSelectElement
+
+    dispatch(filterSlice.actions.handleFilter({
+      name: selectTag.name,
+      params: [
+        filter[0].params[0],
+        (filter[0].params[1] - (filter[0].params[1] - filter[0].params[0])) + Number(selectTag.value)
+      ]
+    }))
+  }
+
   return(
     <div className={styles.filter__heading}>
         <button><span className='text-center mr-[5px] text-sm'>{"‹"}</span>Back</button>
         <div className={styles.sorting__block}>
           <span>Items 1-35 of 61</span>
           <div className={styles.sorting__settings}>
-            <select name="perPage">
+            <select name="Pos">
               <option value="Position">Position</option>
               <option value="Position">Position</option>
               <option value="Position">Position</option>
             </select>
-            <select name="perPage" className='mr-4'>
+            <select onChange={(e) => handleChangePer(e)} name="perPage" className='mr-4'>
               <option value="20">20 per page</option>
               <option value="35">35 per page</option>
               <option value="50">50 per page</option>
