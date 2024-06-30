@@ -10,15 +10,15 @@ export const NewProduct = () => {
   const isNewProduct = (date: string) => {
     const date_now = new Date().getDate()
     const date_product = new Date(date).getDate()
-    return date_now < date_product
+    return date_now <= date_product
   }
-  const newProducts: IProduct[] | undefined = products?.filter((prod) => isNewProduct(prod.date_created))
+  const newProducts: IProduct[] = products && products.filter((prod) => isNewProduct(prod.date_created))
 
   return (
     <div className={styles.new__products}>
       <h1>New Products</h1>
       <div className={styles.carousel__products}>
-      {isLoading ? 'Loading' : newProducts ? <Carousel products={newProducts} count={7} /> : 'Not found'}
+      {isLoading ? 'Loading' : newProducts ? <Carousel products={products} count={7} /> : 'Not found'}
       </div>
     </div>
   )

@@ -146,7 +146,7 @@
         }
 
         & > button {
-          @apply transition-all duration-200 hover:border-[#3e3f42] hover:text-[#3e3f42] text-center px-[55px] py-2 border-2 border-[#A2A6B0] text-[#A2A6B0] rounded-[50px] font-semibold text-sm;
+          @apply transition-all duration-200 hover:border-[#3e3f42] hover:text-[#3e3f42] text-center px-[55px] py-2 border-2 border-[#A2A6B0] text-[#A2A6B0] rounded-[50px] font-semibold text-[12px];
         }
 
         .filters {

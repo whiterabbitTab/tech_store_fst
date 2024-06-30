@@ -1,4 +1,6 @@
 import { IFilterMenu } from "../components/Catalog/FilterMenuItems";
+import { IFilters } from "../types/catalog.type";
+import { IProduct } from "../types/products.type";
 
 export const filterItems: IFilterMenu[] = [
   {
@@ -17,7 +19,7 @@ export const filterItems: IFilterMenu[] = [
         type: 'hp/compaq'
       }
     ],
-    type: 'type'
+    type: 'category'
   },
   {
     heading: 'Price',
@@ -76,3 +78,20 @@ export const brands: string[] = [
   'packard',
   'gigabyte'
 ]
+
+export const filterProducts = (products: IProduct[], filter: IFilters) => {
+  let newProducts: IProduct[] = products
+  if (filter.params.length !== 0) {
+    if (filter.name === 'price') {
+      newProducts = []
+      for (let filt of filter.params) {
+        products.filter(prod => Number(filt.toString().split('-')[0]) < prod.price && prod.price < Number(filt.toString().split('-')[1])).map(prod => newProducts.push(prod))
+      }
+    } else if(filter.name === 'brands') {
+      newProducts = newProducts.filter(prod => filter.params.includes(prod.maker))
+    } else if(filter.name === 'category') {
+      newProducts = newProducts.filter(prod => filter.params.includes(prod.category))
+    }
+  }
+  return newProducts
+}

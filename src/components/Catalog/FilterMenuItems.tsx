@@ -1,6 +1,8 @@
 import { DOMAttributes, MouseEvent, useState } from 'react';
 import styles from '../../styles/Catalog.module.scss';
 import { Image } from 'antd';
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
+import { filterSlice } from '../../store/catalogSlice/filters.slice';
 
 export interface IFilterMenu {
   heading: string;
@@ -14,16 +16,21 @@ export interface IFilterMenu {
 export const FilterMenuItems = ({ heading, elements, type }: IFilterMenu) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const filters = useTypedSelector(state => state.filterSlice)
+  const dispatch = useTypedDispatch()
 
   const handleChangeFilter = (e: MouseEvent<HTMLLIElement>) => {
     const li = e.target as HTMLLIElement
+    const value = li.getAttribute('data-value') as string
     li.style.color === 'black' ? li.style.color = '#7b7d85' : li.style.color = 'black'
+    let oldFilters: string[] = filters.filter(filt => filt.name === type)[0].params as string[]
+    oldFilters.includes(value) === true ? oldFilters = oldFilters.filter(filt => filt !== li.getAttribute('data-value')) : oldFilters = [...oldFilters, value]
+    dispatch(filterSlice.actions.handleFilter({ name: type, params: oldFilters }))
   }
 
   const handleDrop = (e: MouseEvent<HTMLHeadingElement>, id: DOMAttributes<HTMLHeadingElement>) => {
     const heading = e.target as HTMLHeadingElement
     const list = document.getElementById(String(id)) as HTMLUListElement
-    console.log(list)
     const arrow = heading.querySelector('img') as HTMLImageElement
 
     arrow.style.transform === '' || arrow.style.transform === 'rotate(360deg)' ? arrow.style.transform = 'rotate(180deg)' : arrow.style.transform = 'rotate(360deg)'

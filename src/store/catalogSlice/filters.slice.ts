@@ -8,19 +8,19 @@ const initialState: IFilters[] = [
   },
   {
     name: 'category',
-    params: ['all']
+    params: []
   },
   {
     name: 'price',
-    params: ['all']
+    params: []
   },
   {
     name: "colors",
-    params: ["all"]
+    params: []
   },
   {
     name: "brands",
-    params: ["all"]
+    params: []
   }
 ]
 

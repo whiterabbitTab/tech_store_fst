@@ -3,25 +3,35 @@ import { brands, colors, filterItems } from '../../constants/catalog.constants';
 import { FilterMenuItems } from './FilterMenuItems';
 import { MouseEvent, useState } from 'react';
 import { Image } from 'antd';
+import { useTypedDispatch } from '../../hooks/redux';
+import { filterSlice } from '../../store/catalogSlice/filters.slice';
 
 export const FilterBlock = () => {
 
   const [color, setColor] = useState<string[]>([])
   const [images, setImages] = useState<string[]>([])
+  const dispatch = useTypedDispatch()
 
   const handleAddColor = (e: MouseEvent<HTMLDivElement>) => {
     const div = e.target as HTMLDivElement
     color.includes(div.style.backgroundColor) === false ? setColor([...color, div.style.backgroundColor]) : setColor(color.filter(clr => clr !== div.style.backgroundColor))
+    dispatch(filterSlice.actions.handleFilter({ name: 'colors', params: color }))
   }
+
+  const clearFilter = () => {
+    ['category','brands','colors','price'].map(filt => dispatch(filterSlice.actions.handleFilter({ name: filt, params: [] })))
+  }
+
   const handleAddMaker = (e: MouseEvent<HTMLDivElement>) => {
     const img = e.target as HTMLImageElement
     images.includes(img.getAttribute('alt') as string) === false ? setImages([...images, img.getAttribute('alt') as string]) : setImages(images.filter(image => image !== img.getAttribute('alt')))
+    dispatch(filterSlice.actions.handleFilter({ name: 'brands', params: images }))
   }
 
   return (
     <div className={styles.filters__block}>
       <h1>Filters</h1>
-      <button>Clear Filter</button>
+      <button onClick={() => clearFilter()}>Clear Filter</button>
       <div className={styles.filters}>
         <div className={styles.filter__menu}>
           {filterItems.map((filter) => {
@@ -37,7 +47,7 @@ export const FilterBlock = () => {
           </div>
           <div className={styles.brands__filter}>
             <h1>Brands</h1>
-            <button onClick={() => setImages(brands)}>All Brands</button>
+            <button onClick={() => dispatch(filterSlice.actions.handleFilter({ name: 'brands', params: brands }))}>All Brands</button>
             <div className={styles.brands}>
               {brands.map((brand) => {
                 return <Image key={brand} onClick={(e) => handleAddMaker(e)} src={`../../../public/${brand}_logo_home.png`} alt={brand} preview={false} />

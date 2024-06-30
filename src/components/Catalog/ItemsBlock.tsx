@@ -6,12 +6,16 @@ import { FilterBlock } from './FilterBlock';
 import { ProductCardCatalog } from '../ProductCard/ProductCardCatalog';
 import { IProduct } from '../../types/products.type';
 import { useTypedSelector } from '../../hooks/redux';
+import { filterProducts } from '../../constants/catalog.constants';
 
 export const ItemsBlock = ({ showGridProd, type }: { showGridProd: CSSProperties, type: string }) => {
 
   const filters = useTypedSelector(state => state.filterSlice)
-  const { data: products, isLoading, isSuccess } = useGetProductsQuery({ start: filters[0].params[0], end: filters[0].params[1] })
+  const { data: products, isLoading, isSuccess } = useGetProductsQuery(null)
   let filteredProducts: IProduct[] = products && type !== 'other' ? products.filter(prod => prod.type === type) : products
+  filters.map(filt => filteredProducts = filterProducts(filteredProducts, filt))
+  // filteredProducts = filterProducts(filteredProducts, filters[2])
+  console.log(filteredProducts)
 
   useEffect(() => {
     const prodList = document.getElementsByClassName(styles.products__block)[0] as HTMLDivElement
@@ -28,9 +32,9 @@ export const ItemsBlock = ({ showGridProd, type }: { showGridProd: CSSProperties
         <div className={styles.selected__filters}></div>
         <div style={ showGridProd } className={styles.products__list}>
           {isLoading ? (<div>Loading</div>) : (isSuccess && filteredProducts) ?  showGridProd.gridTemplateColumns === '1170px' ? 
-          filteredProducts.map((product, i) => {
+          filteredProducts.slice(filters[0].params[0], filters[0].params[1]).map((product, i) => {
             return <ProductCardCatalog prod={product} key={i} />
-          }) : filteredProducts.map((product, i) => {
+          }) : filteredProducts.slice(filters[0].params[0], filters[0].params[1]).map((product, i) => {
             return <ProductCard styles={styles} prod={product} key={i} />
           }) : (<div>Not Found</div>)}
         </div>
