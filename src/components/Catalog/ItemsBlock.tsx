@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect } from 'react';
+import { CSSProperties, SetStateAction, useEffect } from 'react';
 import styles from '../../styles/Catalog.module.scss';
 import { useGetProductsQuery } from '../../store/api/productApi';
 import { ProductCard } from '../ProductCard/ProductCard';
@@ -7,13 +7,15 @@ import { ProductCardCatalog } from '../ProductCard/ProductCardCatalog';
 import { IProduct } from '../../types/products.type';
 import { useTypedSelector } from '../../hooks/redux';
 import { filterProducts } from '../../constants/catalog.constants';
+import { Dispatch } from '@reduxjs/toolkit';
 
-export const ItemsBlock = ({ showGridProd, type }: { showGridProd: CSSProperties, type: string }) => {
+export const ItemsBlock = ({ showGridProd, type, setCountProducts }: { showGridProd: CSSProperties, type: string, setCountProducts: Dispatch<SetStateAction<number>> }) => {
 
   const filters = useTypedSelector(state => state.filterSlice)
   const { data: products, isLoading, isSuccess } = useGetProductsQuery(null)
   let filteredProducts: IProduct[] = products && type !== 'other' ? products.filter(prod => prod.type === type) : products
   filters.map(filt => filteredProducts = filterProducts(filteredProducts, filt))
+  filteredProducts && setCountProducts(filteredProducts.length)
 
   useEffect(() => {
     const prodList = document.getElementsByClassName(styles.products__block)[0] as HTMLDivElement
