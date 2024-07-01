@@ -53,7 +53,7 @@ export const Basket = () => {
             }
             <div className='flex w-[716px] justify-between h-[50px]'>
               <div className='flex items-center gap-x-2 h-[50px]'>
-                <button onClick={() => navigate('/')} className='transition-all duration-200 hover:border-[#73767c] hover:text-[#73767c] h-[45px] py-2 px-[21px] border-2 border-[#A2A6b0] text-[#A2A6B0] rounded-[50px] font-semibold text-sm'>Continue Shopping</button>
+                <button onClick={() => navigate('/catalog/other')} className='transition-all duration-200 hover:border-[#73767c] hover:text-[#73767c] h-[45px] py-2 px-[21px] border-2 border-[#A2A6b0] text-[#A2A6B0] rounded-[50px] font-semibold text-sm'>Continue Shopping</button>
                 <button onClick={handleClearCart} className='transition-all duration-200 hover:bg-[#383838] py-3 px-6 bg-black text-white rounded-[50px] font-semibold text-sm'>Clear Shopping Cart</button>
               </div>
               <button className='transition-all duration-200 hover:bg-[#383838] py-2 px-6 h-[45px] bg-black text-white rounded-[50px] font-semibold text-sm'>Update Shopping Cart </button>

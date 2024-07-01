@@ -22,7 +22,7 @@ export const Home = () => {
             <ProductsCarousels />
             <HomeLogotypes />
             <SocialCards />
-            <Reviews />
+            <Reviews styles={styles} />
         </div>
     );
 };

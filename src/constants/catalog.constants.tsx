@@ -94,7 +94,7 @@ export const filterProducts = (products: IProduct[], filter: IFilters) => {
     } else if(filter.name === 'colors') {
       newProducts = []
       for (let param of filter.params) {
-        products.filter(prod => prod.colors.includes(param)).map(prod => newProducts.push(prod))
+        products.filter(prod => prod.colors.includes(param as string)).map(prod => newProducts.push(prod))
       }
       newProducts = [...new Set(newProducts)]
     }

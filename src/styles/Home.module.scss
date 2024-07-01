@@ -30,9 +30,10 @@
     }
 }
 
-@mixin reviews() {
+@mixin reviews($width) {
     .reviews__block {
-        @apply w-[1160px] flex flex-col gap-y-16 py-[52px] px-[119px] bg-[#F5F7FF];
+        @apply flex flex-col gap-y-16 py-[52px] px-[119px] bg-[#F5F7FF];
+        width: $width;
 
         ul {
             @apply px-0 w-[52px] translate-x-[862px] translate-y-[54px];
@@ -139,5 +140,5 @@
         }
     }
 
-    
+    @include reviews($width: 91%);
 }

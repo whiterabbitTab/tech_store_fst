@@ -1505,29 +1505,14 @@
       "surname": "Smith",
       "basket": [
         {
-          "id": "pi655",
+          "id": "pi909",
           "count": 1,
-          "price": 499
+          "price": 6500
         },
         {
-          "id": "pi56",
-          "count": 2,
-          "price": 499
-        },
-        {
-          "id": "pi134",
+          "id": "pi144",
           "count": 1,
-          "price": 499
-        },
-        {
-          "id": "pi123",
-          "count": 1,
-          "price": 499
-        },
-        {
-          "id": "pi11",
-          "count": 1,
-          "price": 499
+          "price": 1999
         }
       ],
       "id": "KvFRLIx"

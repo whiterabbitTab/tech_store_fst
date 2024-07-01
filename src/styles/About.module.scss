@@ -27,5 +27,8 @@
     }
   }
 
-  @include home.reviews();
+  @include home.reviews($width: 60%);
+  .reviews__block {
+    @apply mx-auto mt-8;
+  }
 }

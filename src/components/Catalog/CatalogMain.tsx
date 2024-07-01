@@ -6,12 +6,13 @@ import { CSSProperties, ChangeEvent, useState } from 'react';
 import { Pagination } from 'antd';
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { filterSlice } from '../../store/catalogSlice/filters.slice';
+import { useGetProductsQuery } from '../../store/api/productApi';
 
 export const CatalogMain = () => {
 
-  const [countProducts, setCountProducts] = useState<number>(0)
   const { id } = useParams()
   const dispatch = useTypedDispatch()
+  const { data: products } = useGetProductsQuery(null)
   const filters = useTypedSelector(state => state.filterSlice)
   const perpage: number = Number(filters[0].params[1]) - Number(filters[0].params[0])
   const [structureGrid, setStructureGrid] = useState<CSSProperties>({ gridTemplateColumns: 'repeat(5, 234px)' })
@@ -24,10 +25,10 @@ export const CatalogMain = () => {
       <div className={styles.path}><Link to='/' className='font-bold text-sm'>Home</Link> <span className='text-[#0156FF] px-1'>›</span> <Link to='/' className='font-bold text-sm'>Catalog</Link> <span className='text-[#0156FF] px-1'>›</span> <Link to='#' className='font-bold text-sm'>{id && id.charAt(0).toUpperCase() + id.slice(1)}</Link></div>
       {id && <h1>{id.charAt(0).toUpperCase() + id.slice(1)}</h1>}
       <FilterHeading showGridProd={structureGrid} setShowGridProd={setStructureGrid} />
-      <ItemsBlock showGridProd={structureGrid} type={id} setCountProducts={setCountProducts} />
+      <ItemsBlock showGridProd={structureGrid} type={id} />
       <Pagination
         className='mx-auto'
-        total={countProducts}
+        total={products && products.length}
         showSizeChanger={false}
         onChange={(e) => handleChangePage(e)}
         pageSize={perpage}

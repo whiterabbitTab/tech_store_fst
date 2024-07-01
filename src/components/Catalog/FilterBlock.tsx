@@ -5,8 +5,9 @@ import { MouseEvent, useState } from 'react';
 import { Image } from 'antd';
 import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { filterSlice } from '../../store/catalogSlice/filters.slice';
+import { IProduct } from '../../types/products.type';
 
-export const FilterBlock = () => {
+export const FilterBlock = ({ products }: { products: IProduct[] }) => {
 
   const filters = useTypedSelector(state => state.filterSlice)
   const dispatch = useTypedDispatch()
@@ -33,7 +34,7 @@ export const FilterBlock = () => {
       <div className={styles.filters}>
         <div className={styles.filter__menu}>
           {filterItems.map((filter) => {
-            return <FilterMenuItems elements={filter.elements} heading={filter.heading} type={filter.type} key={filter.type} />
+            return <FilterMenuItems elements={filter.elements} heading={filter.heading} type={filter.type} key={filter.type} products={products} />
           })}
           <div className={styles.colors__filter}>
             <h1>Colors</h1>

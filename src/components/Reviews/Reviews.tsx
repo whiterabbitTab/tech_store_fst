@@ -3,7 +3,7 @@ import styles from '../../styles/Home.module.scss';
 import { Carousel } from 'antd';
 import { reviews } from '../../constants/reviewsHome.constants';
 
-export const Reviews = () => {
+export const Reviews = ({ styles }: { styles: CSSModuleClasses }) => {
   return(
     <div className={styles.reviews__block}>
       <Carousel autoplay className='flex flex-col justify-center max-w-[922px] max-h-[205px] items-end gap-x-[26px]'>

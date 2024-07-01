@@ -13,7 +13,7 @@ export const About = () => {
           <AboutBlock darkMode={info.darkMode} heading={info.heading} text={info.text} img={info.img} key={info.img} />
         )}
       </div>
-      <Reviews />
+      <Reviews styles={styles} />
     </div>
   );
 };
