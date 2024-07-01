@@ -64,7 +64,7 @@ export const filterItems: IFilterMenu[] = [
 export const colors: string[] = [
   "red",
   "black",
-  "white",
+  "rgb(240, 240, 240)", //! ЦВЕТА В БАЗЕ ДАННЫХ ОБЯЗАТЕЛЬНО СУКА ДОЛЖНЫ БЫТЬ ЛИБО СЛОВАМИ, ЛИБО RGB
   "gray",
   "blue",
   "green"
@@ -89,8 +89,14 @@ export const filterProducts = (products: IProduct[], filter: IFilters) => {
       }
     } else if(filter.name === 'brands') {
       newProducts = newProducts.filter(prod => filter.params.includes(prod.maker))
-    } else if(filter.name === 'category') {
+    } else if(filter.name === 'category') { 
       newProducts = newProducts.filter(prod => filter.params.includes(prod.category))
+    } else if(filter.name === 'colors') {
+      newProducts = []
+      for (let param of filter.params) {
+        products.filter(prod => prod.colors.includes(param)).map(prod => newProducts.push(prod))
+      }
+      newProducts = [...new Set(newProducts)]
     }
   }
   return newProducts

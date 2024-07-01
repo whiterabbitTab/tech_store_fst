@@ -3,31 +3,29 @@ import { brands, colors, filterItems } from '../../constants/catalog.constants';
 import { FilterMenuItems } from './FilterMenuItems';
 import { MouseEvent, useState } from 'react';
 import { Image } from 'antd';
-import { useTypedDispatch } from '../../hooks/redux';
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { filterSlice } from '../../store/catalogSlice/filters.slice';
 
 export const FilterBlock = () => {
 
-  const [color, setColor] = useState<string[]>([])
-  const [images, setImages] = useState<string[]>([])
+  const filters = useTypedSelector(state => state.filterSlice)
   const dispatch = useTypedDispatch()
 
-  const handleAddColor = (e: MouseEvent<HTMLDivElement>) => {
-    const div = e.target as HTMLDivElement
-    color.includes(div.style.backgroundColor) === false ? setColor([...color, div.style.backgroundColor]) : setColor(color.filter(clr => clr !== div.style.backgroundColor))
-    dispatch(filterSlice.actions.handleFilter({ name: 'colors', params: color }))
+  const handleFiltersBlock = (e: MouseEvent, name: string, element: string) => {
+    const elem = e.target as HTMLElement
+    let oldFilters: string[] = filters.filter(filt => filt.name === name)[0].params as string[]
+    if (element === 'div') {
+      oldFilters.includes(elem.style.backgroundColor as string) === true ? oldFilters = oldFilters.filter(filt => filt !== elem.style.backgroundColor as string) : oldFilters = [...oldFilters, elem.style.backgroundColor as string]
+    } else {
+      oldFilters.includes(elem.getAttribute('alt') as string) === true ? oldFilters = oldFilters.filter(filt => filt !== elem.getAttribute('alt') as string) : oldFilters = [...oldFilters, elem.getAttribute('alt') as string]
+    }
+    dispatch(filterSlice.actions.handleFilter({ name: name, params: oldFilters }))
   }
 
   const clearFilter = () => {
     ['category','brands','colors','price'].map(filt => dispatch(filterSlice.actions.handleFilter({ name: filt, params: [] })))
   }
-
-  const handleAddMaker = (e: MouseEvent<HTMLDivElement>) => {
-    const img = e.target as HTMLImageElement
-    images.includes(img.getAttribute('alt') as string) === false ? setImages([...images, img.getAttribute('alt') as string]) : setImages(images.filter(image => image !== img.getAttribute('alt')))
-    dispatch(filterSlice.actions.handleFilter({ name: 'brands', params: images }))
-  }
-
+  
   return (
     <div className={styles.filters__block}>
       <h1>Filters</h1>
@@ -41,7 +39,7 @@ export const FilterBlock = () => {
             <h1>Colors</h1>
             <div className={styles.colors}>
               {colors.map((color) => {
-                return <div key={color} onClick={(e) => handleAddColor(e)} style={{ backgroundColor: color }} className="transition-all duration-200 hover:scale-105 size-5 rounded-full cursor-pointer p-1"></div>
+                return <div key={color} onClick={(e) => handleFiltersBlock(e, 'colors', 'div')} style={{ backgroundColor: color }} className="transition-all duration-200 hover:scale-105 size-5 rounded-full cursor-pointer p-1"></div>
               })}
             </div>
           </div>
@@ -50,7 +48,7 @@ export const FilterBlock = () => {
             <button onClick={() => dispatch(filterSlice.actions.handleFilter({ name: 'brands', params: brands }))}>All Brands</button>
             <div className={styles.brands}>
               {brands.map((brand) => {
-                return <Image key={brand} onClick={(e) => handleAddMaker(e)} src={`../../../public/${brand}_logo_home.png`} alt={brand} preview={false} />
+                return <Image key={brand} onClick={(e) => handleFiltersBlock(e, 'brands', 'img')} src={`../../../public/${brand}_logo_home.png`} alt={brand} preview={false} />
               })}
             </div>
           </div>
