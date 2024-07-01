@@ -17,6 +17,7 @@ import { DashboardInfo } from "./components/Dashboard/DashboardInfo"
 import { Checkout } from "./pages/Checkout/Checkout"
 import { Catalog } from "./pages/Catalog/Catalog"
 import { CatalogMain } from "./components/Catalog/CatalogMain"
+import { About } from "./pages/About/About"
 
 export const App = () => {
 
@@ -33,6 +34,7 @@ export const App = () => {
         <Route path="/catalog/*" element={<Catalog />}>
           <Route path=":id" element={<CatalogMain />} />
         </Route>
+        <Route path="/about" element={<About />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Auth />} />

@@ -30,6 +30,33 @@
     }
 }
 
+@mixin reviews() {
+    .reviews__block {
+        @apply w-[1160px] flex flex-col gap-y-16 py-[52px] px-[119px] bg-[#F5F7FF];
+
+        ul {
+            @apply px-0 w-[52px] translate-x-[862px] translate-y-[54px];
+        }
+
+        li > button {
+            @apply bg-[#2755ff] rounded-xl;
+            width: 10px !important;
+            height: 10px !important;
+        }
+        .slick-active > button {
+            background-color: #0156FF !important;
+        }
+
+        & > a {
+            @apply transition-all duration-200 hover:bg-[#0156FF] hover:text-white text-sm font-semibold text-[#0156FF] py-2 px-7 rounded-[50px] border-2 border-[#0156FF] w-[182px];
+        }
+
+        .card__review {
+            @apply flex flex-row items-center gap-x-[26px];
+        }
+    }
+}
+
 .home__page {
     @apply flex flex-col items-center w-[73%] gap-y-10;
 
@@ -112,28 +139,5 @@
         }
     }
 
-    .reviews__block {
-        @apply w-[1160px] flex flex-col gap-y-16 py-[52px] px-[119px] bg-[#F5F7FF];
-
-        ul {
-            @apply px-0 w-[52px] translate-x-[862px] translate-y-[54px];
-        }
-
-        li > button {
-            @apply bg-[#2755ff] rounded-xl;
-            width: 10px !important;
-            height: 10px !important;
-        }
-        .slick-active > button {
-            background-color: #0156FF !important;
-        }
-
-        & > a {
-            @apply transition-all duration-200 hover:bg-[#0156FF] hover:text-white text-sm font-semibold text-[#0156FF] py-2 px-7 rounded-[50px] border-2 border-[#0156FF] w-[182px];
-        }
-
-        .card__review {
-            @apply flex flex-row items-center gap-x-[26px];
-        }
-    }
+    
 }

@@ -1,0 +1,31 @@
+@use '../styles/Home.module.scss' as home;
+
+.about__page {
+  @apply flex flex-col gap-y-5 w-full py-3;
+
+  & > h1 {
+    @apply font-semibold w-[73%] mx-auto text-[32px];
+  }
+
+  .about__blocks {
+    @apply flex flex-col w-full;
+
+    .about__block {
+      @apply flex items-center justify-center gap-x-[112px] w-full h-[681px];
+
+      .about__text {
+        @apply flex flex-col gap-y-8 max-w-[565px];
+
+        p {
+          @apply font-light text-lg;
+        }
+
+        h1 {
+          @apply font-medium text-[44px];
+        }
+      }
+    }
+  }
+
+  @include home.reviews();
+}
