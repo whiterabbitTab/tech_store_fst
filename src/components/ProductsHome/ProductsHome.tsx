@@ -31,7 +31,7 @@ export const ProductsHome = ({ carousel }: { carousel: ICarouselProducts }) => {
         <div style={{ background: `url(${carousel.background})` }} className={styles.preview}>
           <div className='flex flex-col justify-between h-1/2 mb-8 text-white'>
             <h1 className='font-bold text-[22px] w-[106px] text-center'>{carousel.name}</h1>
-            <Link to='#' className='transition-colors duration-200 hover:text-blue-400 underline underline-offset-4 text-[13px]'>See All Products</Link>
+            <Link to={carousel.path} className='transition-colors duration-200 hover:text-blue-400 underline underline-offset-4 text-[13px]'>See All Products</Link>
           </div>
         </div>
         {filtered_carousel ? <Carousel filter={filt} products={filtered_carousel.product} count={6} /> : <Carousel products={carousel.product} count={6} /> }

@@ -5,4 +5,5 @@ export interface ICarouselProducts {
   name: string;
   background: string;
   product: IProduct[];
+  path: string;
 }

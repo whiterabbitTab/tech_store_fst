@@ -16,24 +16,28 @@ export const ProductsCarousels = () => {
       {
           product: custom_products,
           background: '../../../public/cust_builds_bg.png',
-          name: 'Custome Builds'
+          name: 'Custome Builds',
+          path: 'catalog/desktop'
       },
       {
           product: msi_products,
           background: '../../public/msi_bg.png',
           name: 'MSI Laptops',
-          filters: ['MSI GS Series', 'MSI GT Series', 'MSI GL Series', 'MSI GE Series']
+          filters: ['MSI GS Series', 'MSI GT Series', 'MSI GL Series', 'MSI GE Series'],
+          path: 'catalog/laptop'
       },
       {
           product: desktop_products,
           background: '../../public/desktops_bg.png',
           name: 'Desktops',
-          filters: ['MSI Infinute Series', 'MSI Triden', 'MSI GL Series', 'MSI Nightblade']
+          filters: ['MSI Infinute Series', 'MSI Triden', 'MSI GL Series', 'MSI Nightblade'],
+          path: 'catalog/desktop'
       },
       {
           product: monitors_products,
           background: '../../public/monitors_bg.png',
-          name: 'Gaming Monitors'
+          name: 'Gaming Monitors',
+          path: 'catalog/netdev'
       }
   ]
 
